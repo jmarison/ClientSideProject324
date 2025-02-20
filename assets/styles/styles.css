@@ -2,26 +2,91 @@ body{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: #4d4c4c;
     font-size: 12px;
-    width: 1024px;
     height: 2048px;
+}
+#introduction{
+    color:white;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2em;
+    text-align: center;
 }
 .form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 350px;
-    background-color: #fff;
+    max-width: 720px;
+    max-height: 1024px;
+    background-color: black;
     padding: 20px;
     border-radius: 20px;
     position: relative;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
   }
   .formTitle{
-    font-size: 28px;
+    font-size: 32px;
     color: royalblue;
     font-weight: 600;
-    letter-spacing: -1px;
-     position: relative;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .numberInputs {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+  }
+  .weightInputs{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    row-gap: 10px;
+  }
+  .form label {
+    position: relative;
+  }
+ 
+  .form label .input, #sexInput {
+    width: calc(100% - 22px); /*cuts out border and padding so it fits in form box */
+    padding: 10px 10px 20px 10px;
+    outline: 0; 
+    border: none;
+    border-radius: 10px;
+    background-color: #4d4c4c; 
     display: flex;
     align-items: center;
-    padding-left: 30px;
+    line-height: 1;
+    font-size: 20px;
+    color: gray;
+    cursor: text;
   }
+  
+
+  #sexInput{
+    width: 100%;
+    border: none;
+    cursor: pointer;
+  }
+  #endDateInput{
+    cursor: pointer;
+  }
+  
+  .submit {
+    border: none;
+    outline: none;
+    background-color: royalblue;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .submit:hover {
+    background-color: rgb(56, 90, 194);
+  }
+  #calorieFinal{
+    font-size: 32px;
+    margin: auto;
+  }
+  

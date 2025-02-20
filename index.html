@@ -5,37 +5,75 @@
         <link rel="stylesheet" href="assets/styles/styles.css">
     </head>
     <body>
+         <!--Introduction Section-->
+        <section id="introduction">
+            <h2>Daily Caloric Intake Calculator for Weight Loss</h2>
+            <p>Developed by Zach K., Kaushal B., Jacob M., and Abdul M.</p>
+        </section>
+      
         <div id="inputs">
             <form id="weightLossForm" class="form">
                 <p class="formTitle">Enter Information</p>
                 <div class="numberInputs">
                     <label for="age">
-                        <input type="number" min="1" max="100" name="age" id="ageInput" required><span>Age</span>
+                        <input 
+                        type="number" 
+                        min="1" 
+                        max="100" 
+                        name="age" 
+                        id="ageInput" 
+                        class="input" 
+                        placeholder="Age"
+                        required>
                     </label>
                     <label for="height">
-                        <input type="number" min="1" max="107" name="height" id="heightInput" required><span>Height(in)</span>
+                        <input 
+                        type="number" 
+                        min="1" 
+                        max="107" 
+                        name="height" 
+                        id="heightInput" 
+                        class="input" 
+                        placeholder="Height (in)"
+                        required>
                     </label>
                 </div>
                 <div class="weightInputs">
                     <label for="currWeight"> 
-                        <input type="number" min="1" max="700" name="currWeight" id="currWeightInput" required><span>Current Weight(lbs)</span>
+                        <input 
+                        type="number" 
+                        min="1" 
+                        max="700" 
+                        name="currWeight"
+                         id="currWeightInput" 
+                        class="input"
+                        placeholder="Current Weight (lbs)"
+                          required>
                     </label>
                     <label for="goalWeight">
-                        <input type="number" min="1" max="700" name="goalWeight" id="goalWeightInput" required><span>Goal Weight(lbs)</span>
+                        <input
+                         type="number"
+                          min="1" 
+                          max="700"
+                          name="goalWeight" 
+                          id="goalWeightInput" 
+                          class="input" 
+                          placeholder="Goal Weight (lbs)"
+                          required>
                     </label>
                 </div>
                 <label for="sex">
-                    <select id="sexInput" name="sex" required>
-                        <option></option> <!-- Blank option -->
+                    <select id="sexInput" name="sex" class="input" required>
+                        <option value="" disabled selected>Choose Sex</option> <!-- Blank option -->
                         <option value="Female">Female</option>
                         <option value="Male">Male</option>
                         <option value="Other">Other</option>
-                    </select><span>Sex</span>
+                    </select>
                 </label>
                 <label for="endDate">
-                    <input type="date" name="endDate" id="endDateInput" required>
+                    <input type="date" name="endDate" id="endDateInput" class="input" placeholder="End Date" required>
                 </label>
-                <input type="submit" value="Submit" id="submitButton">
+                <input type="submit" value="Submit" id="submitButton" class="submit">
             </form>
 
             <div id="calorieFinal"></div>
