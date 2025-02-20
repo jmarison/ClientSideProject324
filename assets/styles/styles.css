@@ -5,3 +5,23 @@ body{
     width: 1024px;
     height: 2048px;
 }
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+  }
+  .formTitle{
+    font-size: 28px;
+    color: royalblue;
+    font-weight: 600;
+    letter-spacing: -1px;
+     position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+  }

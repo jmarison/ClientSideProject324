@@ -6,31 +6,41 @@
     </head>
     <body>
         <div id="inputs">
-            <form id="weightLossForm">
-                <label for="age">Age : </label>
-                <input type="number" min="1" max="100" name="age" id="ageInput" required><br/>
-                <label for="sex">Sex : </label>
-                <select id="sexInput" name="sex" required>
-                    <option></option> <!-- Blank option -->
-                    <option value="Female">Female</option>
-                    <option value="Male">Male</option>
-                    <option value="Other">Other</option>
-                </select><br />
-                <label for="currWeight">Current Weight (lbs) : </label>
-                <input type="number" min="1" max="700" name="currWeight" id="currWeightInput" required><br/>
-                <label for="height">Height (in) : </label>
-                <input type="number" min="1" max="107" name="height" id="heightInput" required><br />
-                <label for="goalWeight">Goal Weight (lbs) : </label>
-                <input type="number" min="1" max="700" name="goalWeight" id="goalWeightInput" required><br/>
-                <label for="endDate">Weight Lost by : </label>
-                <input type="date" name="endDate" id="endDateInput" required><br />
+            <form id="weightLossForm" class="form">
+                <p class="formTitle">Enter Information</p>
+                <div class="numberInputs">
+                    <label for="age">
+                        <input type="number" min="1" max="100" name="age" id="ageInput" required><span>Age</span>
+                    </label>
+                    <label for="height">
+                        <input type="number" min="1" max="107" name="height" id="heightInput" required><span>Height(in)</span>
+                    </label>
+                </div>
+                <div class="weightInputs">
+                    <label for="currWeight"> 
+                        <input type="number" min="1" max="700" name="currWeight" id="currWeightInput" required><span>Current Weight(lbs)</span>
+                    </label>
+                    <label for="goalWeight">
+                        <input type="number" min="1" max="700" name="goalWeight" id="goalWeightInput" required><span>Goal Weight(lbs)</span>
+                    </label>
+                </div>
+                <label for="sex">
+                    <select id="sexInput" name="sex" required>
+                        <option></option> <!-- Blank option -->
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Other">Other</option>
+                    </select><span>Sex</span>
+                </label>
+                <label for="endDate">
+                    <input type="date" name="endDate" id="endDateInput" required>
+                </label>
                 <input type="submit" value="Submit" id="submitButton">
             </form>
 
-            <div id="calorieFinal">PLEASE CHANGE</div>
+            <div id="calorieFinal"></div>
         </div>
 
-        <!-- Link to the external JavaScript file -->
         <script type="text/javascript" src="assets/scripts/scripts.js"></script>
     </body>
 </html>
