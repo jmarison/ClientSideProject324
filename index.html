@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Weight Loss Calcualtor</title>
-        <link rel="stylesheet" href="styles/styles.css">
+        <title>Weight Loss Calculator</title>
+        <link rel="stylesheet" href="assets/styles/styles.css">
     </head>
     <body>
+        <div id="inputs">
+            <form id="weightLossForm">
+                <label for="age">Age : </label>
+                <input type="number" min="1" max="100" name="age" id="ageInput" required><br/>
+                <label for="sex">Sex : </label>
+                <select id="sexInput" name="sex" required>
+                    <option></option> <!-- Blank option -->
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Other">Other</option>
+                </select><br />
+                <label for="currWeight">Current Weight (lbs) : </label>
+                <input type="number" min="1" max="700" name="currWeight" id="currWeightInput" required><br/>
+                <label for="height">Height (in) : </label>
+                <input type="number" min="1" max="107" name="height" id="heightInput" required><br />
+                <label for="goalWeight">Goal Weight (lbs) : </label>
+                <input type="number" min="1" max="700" name="goalWeight" id="goalWeightInput" required><br/>
+                <label for="endDate">Weight Lost by : </label>
+                <input type="date" name="endDate" id="endDateInput" required><br />
+                <input type="submit" value="Submit" id="submitButton">
+            </form>
 
+            <div id="calorieFinal">PLEASE CHANGE</div>
+        </div>
 
-        <script type="text/javascript" src="main.js"></script>
+        <!-- Link to the external JavaScript file -->
+        <script type="text/javascript" src="assets/scripts/scripts.js"></script>
     </body>
 </html>
