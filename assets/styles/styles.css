@@ -1,16 +1,50 @@
 body{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: #4d4c4c;
+    background-color: white;
+    /*background-color: #99d390;*/
+    background-image:url(../../media/images/cover-image.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     font-size: 12px;
     height: 2048px;
+    height: 100vh;
+    
+}
+.innermargian {
+  width: 60%;
+  max-width: 600px;
+  background-color: #FEFBEA;
+  padding: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }
 #introduction{
-    color:white;
+    color:#396c63;;
+    text-decoration: underline;
+    text-decoration-color:#ff8b00;
     max-width: fit-content;
     margin-left: auto;
     margin-right: auto;
     font-size: 2em;
     text-align: center;
+}
+#mission{
+  font-size: large;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 720px;
+    max-height: 1024px;
+    background-color: #a8e89e;
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
 }
 .form {
     display: flex;
@@ -18,7 +52,7 @@ body{
     gap: 10px;
     max-width: 720px;
     max-height: 1024px;
-    background-color: black;
+    background-color: #a8e89e;
     padding: 20px;
     border-radius: 20px;
     position: relative;
@@ -28,7 +62,7 @@ body{
   }
   .formTitle{
     font-size: 32px;
-    color: royalblue;
+    color: white;
     font-weight: 600;
     margin-left: auto;
     margin-right: auto;
@@ -74,19 +108,21 @@ body{
   }
   
   .submit {
+    color: white;
     border: none;
     outline: none;
-    background-color: royalblue;
+    background-color: #ff8b00;
     padding: 10px;
     border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
   }
   .submit:hover {
-    background-color: rgb(56, 90, 194);
+    background-color: #d97600;
   }
   #calorieFinal{
     font-size: 32px;
     margin: auto;
+    text-align: center;
   }
   
