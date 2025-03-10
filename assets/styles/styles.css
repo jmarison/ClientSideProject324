@@ -9,14 +9,18 @@ body {
   font-size: 12px;
   height: 2048px;
   height: 100vh;
+  
 }
 .innermargian {
   width: 60%;
   max-width: 600px;
   background-color: #fefbea;
   padding: 50px;
+  margin-top: 50px;
+  border-radius: 15px;
   margin-left: auto;
   margin-right: auto;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 #introduction {
   color: #396c63;
@@ -25,6 +29,7 @@ body {
   margin-right: auto;
   font-size: 2em;
   text-align: center;
+  
 }
 #mission {
   font-size: large;
