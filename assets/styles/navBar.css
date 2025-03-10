@@ -1,31 +1,29 @@
-body {
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    background-color: white;
-    /*background-color: #99d390;*/
-   /*background-image: url(../../media/images/cover-image.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
-    font-size: 12px;
-    height: 2048px;
-    height: 100vh;
-  }
-  #navBar{
-    width: auto;
-    overflow: hidden;
-    background-color: #a8e89e;
-  }
+:root{
+  --color-background: white;
+  --color-section-background: #fefbea;
+  --color-buttons: #396c63;
+  --color-button-hovers: #396c63c5;
+
+
+  --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+#navBar{
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  background-color: #a8e89e;
+}
   
-  #navBar a {
-    float: left;
-    padding: 14px 16px;
-    text-decoration: none;
-    text-align: center;
-    font-size: 16px;
-    color: black;
-  }
+#navBar a {
+  float: left;
+  padding: 14px 16px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  color: black;
+}
 
   #navBar a:hover{
-    background-color:rgba(143, 169, 48, 0.63)
+    background-color: #83b67cf1;
   }
 
