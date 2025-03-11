@@ -6,12 +6,13 @@
 
 
   --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 
 
 body {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: var(--font-family);
   background-color: var(--color-background);
   /*background-color: #99d390;*/
  /*background-image: url(../../media/images/cover-image.jpg);
@@ -23,6 +24,7 @@ body {
   height: 100vh;
   
 }
+
 .innermargian {
   width: 60%;
   max-width: 600px;
