@@ -42,10 +42,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    if (addFoodButton && foodInput && foodCalories && foodLog) {
+    if (addFoodButton && foodInput && foodCalories && foodLog && caloriesLeft) {
         addFoodButton.addEventListener('click', function() {
             const foodInputValue = foodInput.value;
-            const foodCaloriesValue = foodCalories.value;
+            const foodCaloriesValue = parseInt(foodCalories.value, 10);
 
             if (foodInputValue && foodCaloriesValue) {
                 const newFoodItem = document.createElement('div');
@@ -59,12 +59,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 deleteButton.classList.add('delete-button');
                 deleteButton.addEventListener('click', function() {
                     newFoodItem.remove();
+                    caloriesLeft.value -= foodCaloriesValue; // Decrease meter value when food item is deleted
                 });
 
                 newFoodItem.appendChild(foodText);
                 newFoodItem.appendChild(deleteButton);
 
                 foodLog.appendChild(newFoodItem);
+
+                caloriesLeft.value += foodCaloriesValue; // Increase meter value when food item is added
 
                 foodInput.value = '';
                 foodCalories.value = '';
