@@ -8,8 +8,9 @@
   --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
+
 #navBar{
-  width: auto;
+  width: 100%;
   height: auto;
   overflow: hidden;
   background-color: #a8e89e;
@@ -18,9 +19,18 @@
   left: 0;
   right: 0;
   z-index: 100;
+  padding: 0 10px;
 }
-  
-#navBar a {
+
+#navBar img{
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+  padding: 2px;
+  margin-right: 15px;
+}
+
+.navAnchors, img {
   float: left;
   padding: 14px 16px;
   text-decoration: none;
@@ -29,7 +39,12 @@
   color: black;
 }
 
-#navBar a:hover{
+#navBar a.loginAnchor {
+  float: right;
+}
+
+.navAnchors:hover{
   background-color: #83b67cf1;
 }
+
 
