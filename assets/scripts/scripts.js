@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const height = document.getElementById("heightInput").value;
             const activity = document.getElementById("activityInput").value;
             const goal = document.getElementById("goalInput").value;
+            const caloriesMeter = document.getElementById("caloriesLeft");
 
             // Validate inputs
             if (!age || !sex || !weight || !height || !activity || !goal) {
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(response => response.json())
             .then(data => {
                 document.getElementById("calorieFinal").innerHTML = `<h3>Daily Caloric Intake: ${data.calories} kcal</h3>`;
+                caloriesMeter.max = data.calories;
             })
             .catch(error => {
                 console.error("Error:", error);
@@ -54,9 +56,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 const foodText = document.createElement('span');
                 foodText.textContent = `${foodInputValue} - ${foodCaloriesValue} calories`;
 
-                const deleteButton = document.createElement('button');
-                deleteButton.textContent = 'Delete';
+                const deleteButton = document.createElement('a');
+                const deleteImage = document.createElement('img');
+                deleteImage.src = '../../media/images/delete.png';
                 deleteButton.classList.add('delete-button');
+                deleteButton.appendChild(deleteImage);
                 deleteButton.addEventListener('click', function() {
                     newFoodItem.remove();
                     caloriesLeft.value -= foodCaloriesValue; // Decrease meter value when food item is deleted
@@ -76,6 +80,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     } else {
-        console.error("One or more elements are missing in the DOM.");
+        console.error("One or more elements are missing");
     }
 });

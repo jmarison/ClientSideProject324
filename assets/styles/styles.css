@@ -214,13 +214,21 @@ body {
 }
 
 .delete-button {
-  background-color: red;
-  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
   border: none;
-  padding: 5px;
+  padding: 0;
   cursor: pointer;
+  background-color: transparent;
+  margin-top: 9px;
+  margin-left: 25px;
 }
 
-.delete-button:hover {
-  background-color: darkred;
+.delete-button img {
+  width: 20px; 
+  height: 20px;
+  display: block; 
 }

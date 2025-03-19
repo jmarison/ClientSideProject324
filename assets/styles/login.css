@@ -9,7 +9,9 @@
   }
 #loginform, #signupform {
     background-color: var(--color-section-background);
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
     padding: 1rem;
     max-width: 350px;
     border-radius: 0.5rem;
