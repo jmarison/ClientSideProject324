@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const foodCalories = document.getElementById('foodCalories');
     const foodLog = document.getElementById('foodLog');
 
+    const submitWeightButton = document.getElementById('submitWeight');
+
+
     if (weightLossForm) {
         weightLossForm.addEventListener("submit", function (event) {
             event.preventDefault(); // prevent page reload
@@ -82,4 +85,45 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         console.error("One or more elements are missing");
     }
+
+    if (submitWeightButton && foodInput && foodCalories && foodLog) {
+        submitWeightButton.addEventListener('click', function() {
+            const foodInputValue = foodInput.value;
+            const foodCaloriesValue = parseInt(foodCalories.value, 10);
+
+            if (foodInputValue && foodCaloriesValue) {
+                const newFoodItem = document.createElement('div');
+                newFoodItem.classList.add('food-item');
+
+                const foodText = document.createElement('span');
+                foodText.textContent = `${foodInputValue} - ${foodCaloriesValue} kgs`;
+
+                const deleteButton = document.createElement('a');
+                const deleteImage = document.createElement('img');
+                deleteImage.src = '../../media/images/delete.png';
+                deleteButton.classList.add('delete-button');
+                deleteButton.appendChild(deleteImage);
+                deleteButton.addEventListener('click', function() {
+                    newFoodItem.remove();
+                    caloriesLeft.value -= foodCaloriesValue; // Decrease meter value when food item is deleted
+                });
+
+                newFoodItem.appendChild(foodText);
+                newFoodItem.appendChild(deleteButton);
+
+                foodLog.appendChild(newFoodItem);
+
+                caloriesLeft.value += foodCaloriesValue; // Increase meter value when food item is added
+
+                foodInput.value = '';
+                foodCalories.value = '';
+            } else {
+                alert('Please enter both food item and calories.');
+            }
+        });
+    } else {
+        console.error("One or more elements are missing");
+    }
+
+    
 });
