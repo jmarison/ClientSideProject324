@@ -1,0 +1,623 @@
+/* 
+ * NUTRITION TRACKER APPLICATION STYLES
+ * This stylesheet uses CSS variables for consistent theming
+ * and responsive design for various screen sizes
+ */
+
+:root {
+  /* Main color palette */
+  --color-primary: #4caf50; /* Green - brand color */
+  --color-primary-dark: #388e3c; /* Darker green for hovers */
+  --color-primary-light: #a5d6a7; /* Light green for accents */
+  --color-secondary: #ff9800; /* Orange - for emphasis */
+  --color-secondary-dark: #f57c00; /* Darker orange */
+
+  /* Background colors */
+  --color-background: #f5f7fa; /* Light grayish-blue */
+  --color-card: #ffffff; /* White for cards */
+  --color-section: #f0f8f1; /* Very light green */
+
+  /* Text colors */
+  --color-text-primary: #263238; /* Dark blue-gray */
+  --color-text-secondary: #546e7a; /* Medium blue-gray */
+  --color-text-light: #78909c; /* Light blue-gray */
+  --color-text-white: #ffffff; /* White text */
+
+  /* Nutrition-specific colors */
+  --primary-green: rgb(103, 149, 69); /* Vegan primary green */
+  --light-green: #96bf49; /* Vegan light green */
+  --highlight-green: #eaf6cd; /* Vegan highlight green */
+
+  /* Macro colors - used for nutrient visualizations */
+  --color-protein: #e91e63; /* Pink */
+  --color-carbs: #2196f3; /* Blue */
+  --color-fats: #ffc107; /* Amber */
+
+  /* Effects - reusable shadows and border radius values */
+  --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+
+  /* Typography - consistent font families throughout the application */
+  --font-family-heading: "Montserrat", sans-serif;
+  --font-family-body: "Poppins", sans-serif;
+
+  /* Additional variables for consistency */
+  --border-color: #e0e0e0;
+  --lighter-text: #90a4ae;
+}
+
+/* 
+   * CSS RESET AND BASE STYLES
+   * Reset browser defaults and set base styles
+   */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 
+   * Base body styles with font family fallbacks
+   * Using CSS variables for consistent theming
+   */
+body {
+  font-family: var(--font-family-body), "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+  line-height: 1.6;
+}
+
+/* 
+   * USER INFO SECTION
+   * Displays user profile information in header
+   */
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info span {
+  margin-right: 1rem;
+  font-weight: 500;
+}
+
+.user-info a {
+  color: var(--color-secondary); /* Using orange accent for links */
+  text-decoration: none;
+}
+
+/* 
+   * MAIN CONTAINER
+   * Sets maximum width and centers content with padding
+   */
+main {
+  max-width: 1400px; /* Limits width on large screens */
+  margin: 0 auto; /* Centers the container */
+  padding: 2rem; /* Adds space around content */
+}
+
+/* 
+   * DASHBOARD HEADER
+   * Contains title and date display
+   */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: var(--font-family-heading); /* Using Montserrat for headings */
+}
+
+.date-display {
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+}
+
+/* 
+   * STATS GRID
+   * Responsive grid layout for statistics cards
+   * Uses auto-fit and minmax for responsive behavior
+   */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* 
+   * CARD STYLES
+   * Common styles for all card components
+   */
+.card,
+.stat-card {
+  background-color: var(--color-card);
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--box-shadow-md);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  font-family: var(--font-family-heading);
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* 
+   * PROGRESS BAR STYLES
+   * Custom styling for progress elements
+   */
+.stat-progress {
+  margin-top: 1rem;
+}
+
+progress {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  appearance: none; /* Removes default browser styling */
+}
+
+/* Webkit-specific styling for progress bar background */
+progress::-webkit-progress-bar {
+  background-color: var(--color-primary-light);
+  border-radius: 4px;
+}
+
+/* Webkit-specific styling for progress bar value */
+progress::-webkit-progress-value {
+  background-color: var(--color-primary);
+  border-radius: 4px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.9rem;
+  color: var(--lighter-text);
+  margin-top: 0.25rem;
+}
+
+/* 
+   * MACROS SECTION
+   * Nutritional macros (protein, carbs, fat) visualization
+   */
+.macros-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.macro-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.macro-label {
+  width: 60px; /* Fixed width for consistent alignment */
+  font-size: 0.9rem;
+}
+
+.macro-progress {
+  flex-grow: 1; /* Takes available space */
+  height: 10px;
+  background-color: #eee;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.macro-fill {
+  height: 100%;
+  border-radius: 5px;
+}
+
+/* Color-coding different macronutrients */
+.macro-fill.carbs {
+  background-color: var(--color-carbs);
+}
+
+.macro-fill.protein {
+  background-color: var(--color-protein);
+}
+
+.macro-fill.fat {
+  background-color: var(--color-fats);
+}
+
+.macro-value {
+  width: 40px; /* Fixed width for consistent alignment */
+  text-align: right;
+  font-size: 0.9rem;
+}
+
+/* 
+   * WATER INTAKE SECTION
+   * Visual representation of daily water consumption
+   */
+.water-container {
+  height: 100px;
+  border: 2px solid var(--color-secondary);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.water-level {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0%; /* Initial height, will be changed by JS */
+  background-color: rgba(33, 150, 243, 0.3); /* Light blue with transparency */
+  transition: height 0.5s ease; /* Smooth animation for water level changes */
+}
+
+.water-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 
+   * EXERCISE SECTION
+   * Display exercise statistics
+   */
+.exercise-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.exercise-stats div {
+  text-align: center;
+}
+
+.exercise-stats span {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.exercise-stats small {
+  font-size: 0.85rem;
+  color: var(--lighter-text);
+}
+
+/* 
+   * DASHBOARD CONTENT
+   * Two-column layout for dashboard content
+   * Becomes single-column on smaller screens
+   */
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 1.5rem;
+}
+
+/* Responsive adjustment for medium screens */
+@media (max-width: 1024px) {
+  .dashboard-content {
+    grid-template-columns: 1fr; /* Single column on smaller screens */
+  }
+}
+
+/* 
+   * FOOD LOG STYLES
+   * Styles for food logging functionality
+   */
+.meal-section {
+  margin-bottom: 1.5rem;
+}
+
+.meal-section h4 {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  font-family: var(--font-family-heading);
+}
+
+.food-items {
+  margin-bottom: 0.5rem;
+  min-height: 30px; /* Ensures consistent height even when empty */
+}
+
+.food-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.food-item:last-child {
+  border-bottom: none; /* Removes border from last item */
+}
+
+.food-item .delete-button {
+  cursor: pointer;
+  color: var(--lighter-text);
+}
+
+.food-item .delete-button:hover {
+  color: #f44336; /* Red color on hover */
+}
+
+/* Food entry form */
+.add-food {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.add-food input {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.add-food input:first-child {
+  flex-grow: 1; /* Food name takes available space */
+}
+
+.add-food input[type="number"] {
+  width: 100px; /* Fixed width for calorie input */
+}
+
+/* 
+   * PROGRESS TRACKING
+   * Weight chart and logging functionality
+   */
+.weight-chart {
+  height: 250px;
+  margin-bottom: 1rem;
+}
+
+.log-weight {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.log-weight input {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+/* 
+   * EXERCISE LOG
+   * Form and list for tracking exercise activities
+   */
+.exercise-form {
+  margin-top: 1rem;
+}
+
+.exercise-form h4 {
+  margin-bottom: 0.5rem;
+  font-family: var(--font-family-heading);
+}
+
+.exercise-form select,
+.exercise-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+#exerciseLogEntries {
+  max-height: 200px;
+  overflow-y: auto; /* Scrollable when content exceeds height */
+  margin-bottom: 1rem;
+}
+
+.exercise-log-item {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.exercise-log-item:last-child {
+  border-bottom: none;
+}
+
+.exercise-type {
+  font-weight: 500;
+}
+
+.exercise-details {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+/* 
+   * MEAL SUGGESTIONS
+   * Tabbed interface for meal recommendations
+   */
+.meal-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+}
+
+.meal-tab {
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: var(--color-text-light);
+  transition: all 0.3s;
+}
+
+.meal-tab.active {
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.meal-suggestions-content {
+  min-height: 300px; /* Ensures consistent height */
+}
+
+/* Individual meal suggestion item */
+.meal-suggestion {
+  display: flex;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.meal-suggestion:last-child {
+  border-bottom: none;
+}
+
+.meal-image {
+  width: 80px;
+  height: 80px;
+  background-color: #eee; /* Placeholder background */
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+
+.meal-details h4 {
+  margin-bottom: 0.25rem;
+  font-family: var(--font-family-heading);
+}
+
+.meal-calories {
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.meal-macros {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--lighter-text);
+}
+
+/* 
+   * BUTTON STYLES
+   * Common button styling across the application
+   */
+button {
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth hover effect */
+}
+
+button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* 
+   * MODAL STYLES
+   * Popup dialogs for forms and confirmations
+   */
+.modal {
+  display: none; /* Hidden by default, shown via JS */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+}
+
+.modal-content {
+  background-color: var(--color-card);
+  margin: 10% auto;
+  padding: 2rem;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--box-shadow-lg);
+  max-width: 500px;
+  width: 90%;
+}
+
+.close-modal {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* 
+   * RESPONSIVE ADJUSTMENTS
+   * Adaptations for smaller screen sizes
+   */
+@media (max-width: 768px) {
+  /* Single column layout for stats on mobile */
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stacked header on mobile */
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .date-display {
+    margin-top: 0.5rem;
+  }
+
+  /* Single column dashboard on mobile */
+  .dashboard-content {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stacked food input form on mobile */
+  .add-food {
+    flex-direction: column;
+  }
+
+  .add-food input[type="number"] {
+    width: 100%;
+  }
+}
+
+/* 
+   * ANIMATIONS
+   * CSS animation for water level visualization
+   */
+@keyframes waterFill {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--target-height); /* Set dynamically via JS */
+  }
+}
+
+.water-fill-animation {
+  animation: waterFill 1s forwards;
+}

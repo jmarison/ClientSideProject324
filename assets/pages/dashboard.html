@@ -1,0 +1,253 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitCal - Dashboard</title>
+    <link rel="stylesheet" href="../styles/dashboard.css">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/navBar.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+</head>
+<body>
+    <header>
+        <nav id="navBar">
+                <a id="logo" href="index.html">FITCAL</a>
+                <a href="index.html" class="navAnchors">Home</a>
+                <a href="#" class="navAnchors">About Us</a>
+                <a href="dashboard.html" class="navAnchors active">Dashboard</a>
+            <a href="login.html" id="loginAnchor" class="navAnchors login-btn">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="dashboard-header">
+            <h1>Your Fitness Dashboard</h1>
+            <div class="date-display" id="currentDate"></div>
+        </section>
+
+        <section class="stats-grid">
+            <div class="stat-card" id="calorieGoal">
+                <h3>Daily Calorie Goal</h3>
+                <div class="stat-value">0</div>
+                <div class="stat-progress">
+                    <progress id="caloriesProgress" value="0" max="100"></progress>
+                    <div class="progress-label">
+                        <span id="caloriesConsumed">0</span> / <span id="caloriesTotal">0</span> kcal
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stat-card" id="macros">
+                <h3>Macronutrients</h3>
+                <div class="macros-chart">
+                    <div class="macro-bar">
+                        <div class="macro-label">Carbs</div>
+                        <div class="macro-progress">
+                            <div class="macro-fill carbs" id="carbsFill" style="width: 0%"></div>
+                        </div>
+                        <div class="macro-value" id="carbsValue">0g</div>
+                    </div>
+                    <div class="macro-bar">
+                        <div class="macro-label">Protein</div>
+                        <div class="macro-progress">
+                            <div class="macro-fill protein" id="proteinFill" style="width: 0%"></div>
+                        </div>
+                        <div class="macro-value" id="proteinValue">0g</div>
+                    </div>
+                    <div class="macro-bar">
+                        <div class="macro-label">Fat</div>
+                        <div class="macro-progress">
+                            <div class="macro-fill fat" id="fatFill" style="width: 0%"></div>
+                        </div>
+                        <div class="macro-value" id="fatValue">0g</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stat-card" id="waterIntake">
+                <h3>Water Intake</h3>
+                <div class="water-container">
+                    <div class="water-level" id="waterLevel"></div>
+                </div>
+                <div class="water-controls">
+                    <button id="addWater">+ Add Glass</button>
+                    <span id="waterCount">0/8 glasses</span>
+                </div>
+            </div>
+            
+            <div class="stat-card" id="exerciseLog">
+                <h3>Exercise Today</h3>
+                <div class="exercise-stats">
+                    <div>
+                        <span id="exerciseMinutes">0</span>
+                        <small>minutes</small>
+                    </div>
+                    <div>
+                        <span id="exerciseCalories">0</span>
+                        <small>calories</small>
+                    </div>
+                </div>
+                <button id="logExerciseBtn">Log Exercise</button>
+            </div>
+        </section>
+
+        <section class="dashboard-content">
+            <div class="content-left">
+                <div class="card food-log-card">
+                    <h3>Today's Food Log</h3>
+                    <div class="meal-section">
+                        <h4>Breakfast</h4>
+                        <div class="food-items" id="breakfastItems"></div>
+                        <div class="add-food">
+                            <input type="text" id="breakfastFood" placeholder="Add food item">
+                            <input type="number" id="breakfastCalories" placeholder="Calories">
+                            <button class="add-food-btn" data-meal="breakfast">Add</button>
+                        </div>
+                    </div>
+                    <div class="meal-section">
+                        <h4>Lunch</h4>
+                        <div class="food-items" id="lunchItems"></div>
+                        <div class="add-food">
+                            <input type="text" id="lunchFood" placeholder="Add food item">
+                            <input type="number" id="lunchCalories" placeholder="Calories">
+                            <button class="add-food-btn" data-meal="lunch">Add</button>
+                        </div>
+                    </div>
+                    <div class="meal-section">
+                        <h4>Dinner</h4>
+                        <div class="food-items" id="dinnerItems"></div>
+                        <div class="add-food">
+                            <input type="text" id="dinnerFood" placeholder="Add food item">
+                            <input type="number" id="dinnerCalories" placeholder="Calories">
+                            <button class="add-food-btn" data-meal="dinner">Add</button>
+                        </div>
+                    </div>
+                    <div class="meal-section">
+                        <h4>Snacks</h4>
+                        <div class="food-items" id="snacksItems"></div>
+                        <div class="add-food">
+                            <input type="text" id="snacksFood" placeholder="Add food item">
+                            <input type="number" id="snacksCalories" placeholder="Calories">
+                            <button class="add-food-btn" data-meal="snacks">Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card progress-card">
+                    <h3>Weight Progress</h3>
+                    <div class="weight-chart" id="weightChart">
+                        <canvas id="weightProgressChart"></canvas>
+                    </div>
+                    <div class="log-weight">
+                        <input type="number" id="weightInput" placeholder="Enter weight">
+                        <button id="logWeightBtn">Log Weight</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-right">
+                <div class="card exercise-card">
+                    <h3>Exercise Log</h3>
+                    <div id="exerciseLogEntries"></div>
+                    <div class="exercise-form">
+                        <h4>Add Exercise</h4>
+                        <select id="exerciseType">
+                            <option value="">Select exercise type</option>
+                            <option value="cardio">Cardio</option>
+                            <option value="strength">Strength Training</option>
+                            <option value="yoga">Yoga</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <input type="text" id="exerciseName" placeholder="Exercise name">
+                        <input type="number" id="exerciseDuration" placeholder="Duration (mins)">
+                        <input type="number" id="exerciseCaloriesBurned" placeholder="Calories burned">
+                        <button id="addExerciseBtn">Add Exercise</button>
+                    </div>
+                </div>
+
+                <div class="card meal-suggestions">
+                    <h3>Meal Suggestions</h3>
+                    <div class="meal-tabs">
+                        <button class="meal-tab active" data-meal="breakfast">Breakfast</button>
+                        <button class="meal-tab" data-meal="lunch">Lunch</button>
+                        <button class="meal-tab" data-meal="dinner">Dinner</button>
+                        <button class="meal-tab" data-meal="snacks">Snacks</button>
+                    </div>
+                    <div class="meal-suggestions-content" id="mealSuggestions">
+                        <!-- Meal suggestions will be loaded here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="exerciseModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Log Exercise</h2>
+            <div class="exercise-form">
+                <select id="modalExerciseType">
+                    <option value="">Select exercise type</option>
+                    <option value="cardio">Cardio</option>
+                    <option value="strength">Strength Training</option>
+                    <option value="yoga">Yoga</option>
+                    <option value="other">Other</option>
+                </select>
+                <input type="text" id="modalExerciseName" placeholder="Exercise name">
+                <input type="number" id="modalExerciseDuration" placeholder="Duration (mins)">
+                <input type="number" id="modalExerciseCaloriesBurned" placeholder="Calories burned">
+                <button id="modalAddExerciseBtn">Add Exercise</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-content-left">
+                <div id="footerLogo">FitCal</div>
+                <p>Your healthy lifestyle companion.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Social media</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Calorie Calculator</a></li>
+                    <li><a href="#">Meal Plans</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Recipe Database</a></li>
+                    <li><a href="#">Shopping Guide</a></li>
+                    <li><a href="#">Nutrient Calculator</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            
+        </div>
+        
+        <div class="copyright">
+            Copyright © 2025 FitCal
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="../scripts/dashboard.js"></script>
+</body>
+</html>
