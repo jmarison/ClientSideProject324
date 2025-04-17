@@ -1,116 +1,238 @@
 <!DOCTYPE html>
 <html> 
-    
     <head>
-        <title>Weight Loss Calculator</title>
-        <link rel="stylesheet" href="../../assets/styles/styles.css">
+        <title>FitCal - Weight Loss Calculator</title>
         <link rel="stylesheet" href="../../assets/styles/navBar.css">
-
-       
-        
+        <link rel="stylesheet" href="../../assets/styles/footer.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../styles/styles.css">
     </head>
-    <body>
-        <nav id="navBar">
-            <a id="logo" href="index.html"> <img src="../../media/images/tempLogo.png"></a>
-            <a href="index.html" class="navAnchors" >Home</a>
-            <a href="nutrition.html" class="navAnchors" >Nutrition</a>
-            <a href="weightlog.html" class="navAnchors" >Weight Log</a>
-            <a href="exercise.html" class="navAnchors" >Exercise Tracker</a>
-            <a href="login.html" id="loginAnchor" class="navAnchors" >Login</a>
-        </nav>
-        <div class="innermargian">
-         <!--Introduction Section-->
-        <section id="introduction">
-            <h2>Daily Caloric Intake Calculator for Maintaining Weight</h2>
-            <p>Developed by Zach K., Kaushal B., Jacob M., and Abdul M.</p>
-        </section>
 
-        <section id="mission">
-            <h3>Our Mission</h3>
-            <p>Only about 20% of adults in America feel happy about the state of their body.  We want to create a tool which can assist in creating
-                 achievable goals for improving one's body to their desires.
-            </p>
-        </section>
-      
-      
-        </div>
-
-        <div id="inputs">
-            <form id="weightLossForm" class="form">
-                <p class="formTitle">Enter Information</p>
-                <div class="numberInputs">
-                    <label for="age">
-                        <input 
-                        type="number" 
-                        min="1" 
-                        max="100" 
-                        name="age" 
-                        id="ageInput" 
-                        class="input" 
-                        placeholder="Age"
-                        required>
-                    </label>
-                    <label for="height">
-                        <input 
-                        type="number" 
-                        min="1" 
-                        name="height" 
-                        id="heightInput" 
-                        class="input" 
-                        placeholder="Height (in cm)"
-                        required>
-                    </label>
-                </div>
-                <div class="weightInputs">
-                    <label for="weight">
-                        <input 
-                        type="number" 
-                        min="1" 
-                        name="weight" 
-                        id="weightInput" 
-                        class="input" 
-                        placeholder="Weight (in kgs)"
-                        required>
-                    </label>
-                </div>
-                <label for="sex">
-                    <select id="sexInput" name="sex" class="input" required>
-                        <option value="" disabled selected>Choose Sex</option> <!-- Blank option -->
-                        <option value="Female">Female</option>
-                        <option value="Male">Male</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </label>
-                <label for="activity">
-                    <select id="activityInput" name="activity" class="input" required>
-                        <option value="" disabled selected>Select Activity</option> <!-- Blank option -->
-                        <option value="1">Little or no exercise</option>
-                        <option value="2">1-3 times per week</option>
-                        <option value="3">4-5 times per week</option>
-                        <option value="4">Daily or intense exercise 3-4 times per week</option>
-                        <option value="5">Intense exercise 6-7 times per week</option>
-                    </select>
-                </label>
-                <label for="goal">
-                    <select id="goalInput" name="goal">
-                        <option value="" disabled selected>Choose Your Goal</option> <!-- Blank option -->
-                        <option value="1">Weight loss - 10% body mass per week</option>
-                        <option value="2">Mild weight loss - 5% body mass per week</option>
-                        <option value="3">Maintain weight</option>
-                        <option value="4">Mild weight gain - 5% body mass per week</option>
-                        <option value="5">Weight gain - 10% body mass per week</option>
-                    </select>
-                </label>
-                <input type="submit" value="Make my Plan!" id="submitButton" class="formButton">
-            </form>
-
-            
-        </div>
-
-        <script type="text/javascript" src="../..assets/scripts/scripts.js"></script>
-    </body>
-</div>
-<footer>
     
-</footer>
+    <body>
+        <header>
+            <nav id="navBar">
+                <a id="logo" href="index.html">FITCAL</a>
+                <a href="index.html" class="navAnchors active">Home</a>
+                <a href="dashboard.html" class="navAnchors">About Us</a>
+                <a href="dashboard.html" class="navAnchors">Dashboard</a>
+                <a href="login.html" id="loginAnchor" class="navAnchors login-btn">Login</a>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="page-header">
+                <h1>Daily Calorie Calculator</h1>
+                <p>Get your personalized nutrition plan based on your goals</p>
+            </section>
+
+            <section class="calculator-container">
+                <div class="calculator-column">
+                    <form id="weightLossForm" class="form">
+                        <p class="formTitle">Your Information</p>
+                        <div class="numberInputs">
+                            <label for="age">
+                                <span class="input-label">Age</span>
+                                <input 
+                                type="number" 
+                                min="1" 
+                                max="100" 
+                                name="age" 
+                                id="ageInput" 
+                                class="input" 
+                                placeholder="Years"
+                                required>
+                            </label>
+                            <label for="height">
+                                <span class="input-label">Height</span>
+                                <input 
+                                type="number" 
+                                min="1" 
+                                name="height" 
+                                id="heightInput" 
+                                class="input" 
+                                placeholder="cm"
+                                required>
+                            </label>
+                        </div>
+                        <div class="weightInputs">
+                            <label for="weight">
+                                <span class="input-label">Weight</span>
+                                <input 
+                                type="number" 
+                                min="1" 
+                                name="weight" 
+                                id="weightInput" 
+                                class="input" 
+                                placeholder="kg"
+                                required>
+                            </label>
+                        </div>
+                        <label for="sex">
+                            <span class="input-label">Sex</span>
+                            <select id="sexInput" name="sex" class="input" required>
+                                <option value="" disabled selected>Select</option>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </label>
+                        <label for="activity">
+                            <span class="input-label">Activity Level</span>
+                            <select id="activityInput" name="activity" class="input" required>
+                                <option value="" disabled selected>Select</option>
+                                <option value="1">Little or no exercise</option>
+                                <option value="2">1-3 times per week</option>
+                                <option value="3">4-5 times per week</option>
+                                <option value="4">Daily or intense exercise 3-4 times per week</option>
+                                <option value="5">Intense exercise 6-7 times per week</option>
+                            </select>
+                        </label>
+                        <label for="goal">
+                            <span class="input-label">Goal</span>
+                            <select id="goalInput" name="goal" class="input" required>
+                                <option value="" disabled selected>Select</option>
+                                <option value="1">Weight loss - 10% body mass per week</option>
+                                <option value="2">Mild weight loss - 5% body mass per week</option>
+                                <option value="3">Maintain weight</option>
+                                <option value="4">Mild weight gain - 5% body mass per week</option>
+                                <option value="5">Weight gain - 10% body mass per week</option>
+                            </select>
+                        </label>
+                        <button type="submit" id="submitButton" class="formButton">
+                            <span>Calculate My Plan</span>
+                            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="calculator-column results-column">
+                    <article id="calorieFinal">
+                        <div class="results-container">
+                            <div class="calorie-result">
+                                <p>Your daily calorie requirement</p>
+                                <p class="highlight" id="totalCalories">0 calories</p>
+                            </div>
+                            
+                            <div class="macro-breakdown">
+                                <h3>Macronutrient Breakdown</h3>
+                                <div class="macro-container">
+                                    <div class="macro-item">
+                                        <div class="macro-circle protein">
+                                            <span id="proteinGrams">0g</span>
+                                        </div>
+                                        <p>Protein</p>
+                                        <p class="macro-calories" id="proteinCalories">0 kcal</p>
+                                    </div>
+                                    
+                                    <div class="macro-item">
+                                        <div class="macro-circle carbs">
+                                            <span id="carbsGrams">0g</span>
+                                        </div>
+                                        <p>Carbs</p>
+                                        <p class="macro-calories" id="carbsCalories">0 kcal</p>
+                                    </div>
+                                    
+                                    <div class="macro-item">
+                                        <div class="macro-circle fats">
+                                            <span id="fatsGrams">0g</span>
+                                        </div>
+                                        <p>Fats</p>
+                                        <p class="macro-calories" id="fatsCalories">0 kcal</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="macro-bar-container">
+                                    <div class="macro-bar-label">
+                                        <span>Daily ratio:</span>
+                                    </div>
+                                    <div class="macro-bar">
+                                        <div class="macro-bar-segment protein" id="proteinBar" style="width: 0%"></div>
+                                        <div class="macro-bar-segment carbs" id="carbsBar" style="width: 0%"></div>
+                                        <div class="macro-bar-segment fats" id="fatsBar" style="width: 0%"></div>
+                                    </div>
+                                    <div class="macro-percentages">
+                                        <span id="proteinPercent">0%</span>
+                                        <span id="carbsPercent">0%</span>
+                                        <span id="fatsPercent">0%</span>
+                                    </div>
+                                </div>
+                                
+                                <aside class="nutrition-tips">
+                                    <h4>Nutrition Tips</h4>
+                                    <ul>
+                                        <li><strong>Protein:</strong> Focus on lean meats, fish, eggs, tofu, and legumes</li>
+                                        <li><strong>Carbs:</strong> Choose complex carbs like whole grains, fruits, and vegetables</li>
+                                        <li><strong>Fats:</strong> Include healthy fats from avocados, nuts, seeds, and olive oil</li>
+                                    </ul>
+                                    <a href="nutrition.html" class="tips-link">Want to have personalized meal →</a>
+                                </aside>
+                            </div>
+                        </div>
+                    </article>
+                    <section id="empty-state">
+                        <div class="empty-state-content">
+                            <div class="empty-state-icon">
+                                <svg viewBox="0 0 24 24" width="64" height="64" stroke="#4CAF50" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                                </svg>
+                            </div>
+                            <h3>Your Results Will Appear Here</h3>
+                            <p>Fill out the form and click "Calculate My Plan" to get your personalized nutrition breakdown.</p>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-content-left">
+                    <div id="footerLogo">FitCal</div>
+                    <p>Your healthy lifestyle companion.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Social media</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Calorie Calculator</a></li>
+                        <li><a href="#">Meal Plans</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Recipe Database</a></li>
+                        <li><a href="#">Shopping Guide</a></li>
+                        <li><a href="#">Nutrient Calculator</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+            <div class="copyright">
+                Copyright © 2025 FitCal
+            </div>
+        </footer>
+
+        <script type="text/javascript" src="../scripts/scripts.js"></script>
+    </body>
 </html>

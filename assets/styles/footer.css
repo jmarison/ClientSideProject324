@@ -1,0 +1,192 @@
+:root {
+  /* Main color palette */
+  --color-primary: #4caf50; /* Green - brand color */
+  --color-primary-dark: #388e3c; /* Darker green for hovers */
+  --color-primary-light: #a5d6a7; /* Light green for accents */
+  --color-secondary: #ff9800; /* Orange - for emphasis */
+  --color-secondary-dark: #f57c00; /* Darker orange */
+
+  /* Background colors */
+  --color-background: #f5f7fa; /* Light grayish-blue */
+  --color-card: #ffffff; /* White for cards */
+  --color-section: #f0f8f1; /* Very light green */
+
+  /* Text colors */
+  --color-text-primary: #263238; /* Dark blue-gray */
+  --color-text-secondary: #546e7a; /* Medium blue-gray */
+  --color-text-light: #78909c; /* Light blue-gray */
+  --color-text-white: #ffffff; /* White text */
+
+  /* Nutrition-specific colors */
+  --primary-green: rgb(103, 149, 69); /* Vegan primary green */
+  --light-green: #96bf49; /* Vegan light green */
+  --highlight-green: #eaf6cd; /* Vegan highlight green */
+
+  /* Macro colors */
+  --color-protein: #e91e63; /* Pink */
+  --color-carbs: #2196f3; /* Blue */
+  --color-fats: #ffc107; /* Amber */
+
+  /* Effects */
+  --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+
+  /* Typography */
+  --font-family-heading: "Montserrat", sans-serif;
+  --font-family-body: "Poppins", sans-serif;
+}
+
+/* ==============================================
+     Footer
+     ============================================== */
+footer {
+  background-color: var(
+    --color-card
+  ); /* Using the same background as navbar for consistency */
+  color: var(--color-text-secondary);
+  padding: 60px 0 20px; /* More top padding to create visual space */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Inverted shadow from top instead of bottom */
+}
+
+/* Using CSS Grid for the main footer layout - all columns in one row */
+.footer-content {
+  width: 80%; /* Constrains width similar to other content sections */
+  max-width: 1000px;
+  margin: 0 auto; /* Center the content */
+  display: grid; /* Grid layout for flexible column structure */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(180px, 1fr)
+  ); /* Slightly smaller minimum width to fit more columns */
+  gap: 30px; /* Space between columns */
+}
+
+/* Logo section is now just another column */
+.footer-logo {
+  /* No grid-column property - now it's just a regular column */
+  display: flex;
+  flex-direction: column;
+}
+
+#footerLogo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primary); /* Matches the navbar logo color */
+  margin-bottom: 10px;
+}
+
+.footer-logo p {
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+}
+
+/* Heading styling with decorative underline element */
+.footer-column h3,
+.footer-logo #footerLogo {
+  color: var(--color-primary);
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  position: relative; /* Needed for absolute positioning of the ::after element */
+  padding-bottom: 8px; /* Space for the underline */
+}
+
+/* Apply the underline to both column headings and logo */
+.footer-column h3::after,
+.footer-logo #footerLogo::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-primary-light);
+  border-radius: 2px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px; /* Vertical spacing between links */
+}
+
+/* Interactive link styling with hover effects */
+.footer-links a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color 0.3s; /* Smooth color transition */
+  position: relative; /* Needed for the hover underline effect */
+}
+
+.footer-links a:hover {
+  color: var(--color-primary); /* Color change on hover */
+}
+
+/* Animated underline effect on links - matches navbar */
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0; /* Starts with no width */
+  height: 1px;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease; /* Animates the width change */
+}
+
+.footer-links a:hover::after {
+  width: 100%; /* Expands to full width on hover */
+}
+
+/* Copyright section with separator line */
+.copyright {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05); /* Subtle separator line */
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+/* ==============================================
+       Responsive Adjustments
+       ============================================== */
+
+@media (max-width: 992px) {
+  .footer-content {
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* 3 columns on medium-large screens */
+  }
+
+  /* Logo takes full width on this breakpoint */
+  .footer-logo {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .footer-logo #footerLogo::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-content {
+    grid-template-columns: 1fr; /* Single column on mobile */
+  }
+}

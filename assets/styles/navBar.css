@@ -1,50 +1,110 @@
-:root{
-  --color-background: white;
-  --color-section-background: #fefbea;
-  --color-buttons: #396c63;
-  --color-button-hovers: #396c63c5;
+:root {
+  /* Main color palette */
+  --color-primary: #4caf50; /* Green - brand color */
+  --color-primary-dark: #388e3c; /* Darker green for hovers */
+  --color-primary-light: #a5d6a7; /* Light green for accents */
+  --color-secondary: #ff9800; /* Orange - for emphasis */
+  --color-secondary-dark: #f57c00; /* Darker orange */
 
+  /* Background colors */
+  --color-background: #f5f7fa; /* Light grayish-blue */
+  --color-card: #ffffff; /* White for cards */
+  --color-section: #f0f8f1; /* Very light green */
 
-  --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  /* Text colors */
+  --color-text-primary: #263238; /* Dark blue-gray */
+  --color-text-secondary: #546e7a; /* Medium blue-gray */
+  --color-text-light: #78909c; /* Light blue-gray */
+  --color-text-white: #ffffff; /* White text */
+
+  /* Nutrition-specific colors */
+  --primary-green: rgb(103, 149, 69); /* Vegan primary green */
+  --light-green: #96bf49; /* Vegan light green */
+  --highlight-green: #eaf6cd; /* Vegan highlight green */
+
+  /* Macro colors */
+  --color-protein: #e91e63; /* Pink */
+  --color-carbs: #2196f3; /* Blue */
+  --color-fats: #ffc107; /* Amber */
+
+  /* Effects */
+  --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+
+  /* Typography */
+  --font-family-heading: "Montserrat", sans-serif;
+  --font-family-body: "Poppins", sans-serif;
 }
 
-
-#navBar{
-  width: 100%;
-  height: auto;
-  overflow: hidden;
-  background-color: #a8e89e;
-  position: fixed;
-  top: 0;
+#navBar {
+  background-color: var(--color-card);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  height: 70px;
   left: 0;
   right: 0;
-  z-index: 100;
-  padding: 0 10px;
+  z-index: 1000;
 }
 
-#navBar img{
-  width: 40px;
+.navAnchors {
+  color: var(--color-text-secondary);
+  margin: 0 15px;
+  font-weight: 500;
+  position: relative;
+}
+
+.navAnchors:hover {
+  color: var(--color-primary);
+}
+
+.navAnchors::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.navAnchors:hover::after,
+.navAnchors.active::after {
+  width: 100%;
+}
+
+#logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+#logo img {
   height: 40px;
-  margin: 2px;
-  padding: 2px;
-  margin-right: 15px;
 }
 
-.navAnchors, img {
-  float: left;
-  padding: 14px 16px;
-  text-decoration: none;
-  text-align: center;
-  font-size: 16px;
-  color: black;
+#loginAnchor {
+  margin-left: auto;
 }
 
-#navBar a.loginAnchor {
-  float: right;
+.login-btn {
+  background-color: var(--color-primary);
+  color: var(--color-text-white) !important;
+  padding: 8px 20px;
+  border-radius: var(--border-radius-sm);
+  transition: background-color 0.2s ease;
 }
 
-.navAnchors:hover{
-  background-color: #83b67cf1;
+.login-btn:hover {
+  background-color: var(--color-primary-dark);
 }
 
-
+.login-btn::after {
+  display: none;
+}
