@@ -1,76 +1,281 @@
-:root{
-    --color-background: white;
-    --color-section-background: #fefbea;
-    --color-buttons: #396c63;
-    --color-button-hovers: #396c63c5;
-  
-  
-    --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+/* Login & Registration Styles for FitCal */
+:root {
+  /* Main color palette (inherited from main styles.css) */
+  --color-primary: #4caf50; /* Green - brand color */
+  --color-primary-dark: #388e3c; /* Darker green for hovers */
+  --color-primary-light: #a5d6a7; /* Light green for accents */
+  --color-secondary: #ff9800; /* Orange - for emphasis */
+  --color-secondary-dark: #f57c00; /* Darker orange */
+
+  /* Background colors */
+  --color-background: #f5f7fa; /* Light grayish-blue */
+  --color-card: #ffffff; /* White for cards */
+  --color-section: #f0f8f1; /* Very light green */
+
+  /* Text colors */
+  --color-text-primary: #263238; /* Dark blue-gray */
+  --color-text-secondary: #546e7a; /* Medium blue-gray */
+  --color-text-light: #78909c; /* Light blue-gray */
+  --color-text-white: #ffffff; /* White text */
+
+  /* Effects */
+  --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+
+  /* Typography */
+  --font-family-heading: "Montserrat", sans-serif;
+  --font-family-body: "Poppins", sans-serif;
+}
+
+/* Login Container Styles */
+.auth-container {
+  display: flex; /* Using flex to center the form both horizontally and vertically */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  min-height: calc(
+    100vh - 70px
+  ); /* Full viewport height minus navbar for perfect centering */
+  padding: 40px 20px; /* Adds spacing on mobile */
+  background-color: var(--color-background);
+}
+
+/* Auth Forms */
+.auth-form {
+  width: 100%;
+  max-width: 430px; /* Limits width for better readability on large screens */
+  background-color: var(--color-card);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-md); /* Adds depth with subtle shadow */
+  padding: 40px 35px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation for hover effect */
+}
+
+.auth-form:hover {
+  transform: translateY(
+    -5px
+  ); /* Slight upward movement on hover for interactive feel */
+  box-shadow: var(
+    --box-shadow-lg
+  ); /* Deeper shadow on hover to enhance "lifting" effect */
+}
+
+.form-title {
+  font-family: var(--font-family-heading);
+  color: var(--color-primary);
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative; /* Needed for the pseudo-element positioning */
+  padding-bottom: 15px;
+}
+
+.form-title::after {
+  content: ""; /* Required for pseudo-elements */
+  position: absolute; /* Positions the underline independently */
+  left: 50%; /* Centers the line */
+  bottom: 0;
+  transform: translateX(-50%); /* Ensures perfect centering with the offset */
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-primary-light);
+  border-radius: 3px; /* Rounded ends for the underline */
+}
+
+.input-container {
+  margin-bottom: 25px;
+  position: relative; /* Needed for positioning error messages and icons */
+}
+
+.input-container input {
+  width: 100%;
+  padding: 15px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  transition: all 0.2s ease; /* Smooth transition for hover/focus states */
+  font-family: var(--font-family-body);
+  outline: none; /* Removes default browser outline */
+  background-color: var(--color-card);
+}
+
+.input-container input:hover {
+  border-color: #bdbdbd; /* Darker border on hover for better UI feedback */
+}
+
+.input-container input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1); /* Glow effect around input when focused */
+}
+
+.input-container input::placeholder {
+  color: var(--color-text-light); /* Lighter color for placeholder text */
+}
+
+.auth-form .submit {
+  width: 100%;
+  color: var(--color-text-white);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 14px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease; /* Smooth transition for hover/active states */
+  margin-top: 15px;
+  display: flex; /* Used for centering text and adding potential icons */
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Space between icon and text if needed */
+}
+
+.auth-form .submit:hover {
+  background-color: var(--color-primary-dark); /* Darker shade on hover */
+}
+
+.auth-form .submit:active {
+  transform: translateY(1px); /* Slight push down effect when clicked */
+}
+
+.signup-link,
+.login-link {
+  text-align: center;
+  margin-top: 25px;
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+.signup-link a,
+.login-link a {
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease; /* Smooth color change on hover */
+}
+
+.signup-link a:hover,
+.login-link a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline; /* Adds underline on hover for better UX */
+}
+
+.auth-divider {
+  display: flex; /* Flex used to create lines on both sides of the text */
+  align-items: center;
+  margin: 30px 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: ""; /* Required for pseudo-elements */
+  flex: 1; /* Takes up available space equally */
+  height: 1px;
+  background-color: #e0e0e0; /* Light gray line */
+}
+
+.auth-divider span {
+  padding: 0 15px; /* Space between text and lines */
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+}
+
+.password-toggle {
+  position: absolute; /* Positioned relative to the input container */
+  right: 15px;
+  top: 50%; /* Centers vertically */
+  transform: translateY(-50%); /* Perfect vertical centering */
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-light);
+}
+
+.form-error {
+  color: #e53935; /* Red for error messages */
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: none; /* Hidden by default, shown when validation fails */
+}
+
+.input-container.error input {
+  border-color: #e53935; /* Red border for invalid inputs */
+}
+
+.input-container.error .form-error {
+  display: block; /* Shows error message when error class is applied */
+}
+
+/* Responsive Styles */
+@media (max-width: 576px) {
+  .auth-form {
+    padding: 30px 25px; /* Smaller padding on mobile */
   }
-#loginform, #signupform {
-    background-color: var(--color-section-background);
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    padding: 1rem;
-    max-width: 350px;
-    border-radius: 0.5rem;
-    box-shadow: var(--box-shadow);
-    justify-self: center;
-    margin-top: 200px;
-  }
-  
+
   .form-title {
-    font-size: 1.75rem;
-    line-height: 1.75rem;
-    font-weight: 600;
-    text-align: center;
-    color: var(--color-buttons);
+    font-size: 1.5rem; /* Smaller font on mobile */
   }
 
-  
-  .input-container {
-    position: relative;
-  }
-  
-  .input-container input, .form button {
-    outline: none;
-    border: 1px solid #e5e7eb;
-    margin: 8px 0;
-  }
-  
   .input-container input {
-    border-radius: 0.5rem;
-    background-color: var(--color-background);
-    padding: 1rem;
-    padding-right: 3rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    width: 275px;
+    padding: 12px 14px; /* Smaller input fields on mobile */
   }
-  
-  .submit {
-    display: block;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    background-color: var(--color-buttons);
-    color: white;
-    width: 100%;
-    border-radius: 0.5rem;
 
+  .auth-form .submit {
+    padding: 12px 20px; /* Smaller button on mobile */
   }
-  .submit:hover{
-    background-color: var(--color-button-hovers);
+}
+
+/* Loading Effects */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Transparent border */
+  border-radius: 50%; /* Circular spinner */
+  border-top-color: var(
+    --color-text-white
+  ); /* Only top border visible for spinning effect */
+  animation: spin 0.8s linear infinite; /* Rotation animation */
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg); /* Rotates from 0 to 360 degrees */
   }
-  .signup-link {
-    color: #6B7280;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    text-align: center;
-  }
-  
-  .signup-link a {
-    text-decoration: underline;
-  }
+}
+
+.submit.loading {
+  pointer-events: none; /* Prevents clicking while loading */
+  opacity: 0.8; /* Visual indication of disabled state */
+}
+
+/* Social Login Buttons (Optional) */
+.social-login {
+  display: flex; /* Side by side buttons */
+  gap: 15px; /* Space between buttons */
+  margin-top: 20px;
+}
+
+.social-btn {
+  flex: 1; /* Equal width buttons */
+  padding: 12px;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid #e0e0e0;
+  background-color: var(--color-card);
+  display: flex; /* For centering icons and text */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease; /* Smooth hover effect */
+}
+
+.social-btn:hover {
+  background-color: #f5f5f5; /* Slight background change on hover */
+  border-color: #bdbdbd; /* Darker border on hover */
+}
