@@ -1,46 +1,53 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Log in | Sign Up</title>
-        <link rel="stylesheet" href="../../assets/styles/navBar.css">
-        <link rel="stylesheet" href="../../assets/styles/login.css">
-        <link rel="stylesheet" href="../../assets/styles/styles.css">
-        
-
-
-
-        
-    </head>
-    <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | FitCal</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/login.css">
+    <link rel="stylesheet" href="../styles/navBar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
         <nav id="navBar">
-            <a id="logo" href="index.html"> <img src="../../media/images/tempLogo.png"></a>
-            <a href="index.html" class="navAnchors" >Home</a>
-            <a href="nutrition.html" class="navAnchors" >Nutrition</a>
-            <a href="weightlog.html" class="navAnchors" >Weight Log</a>
-            <a href="exercise.html" class="navAnchors" >Exercise Tracker</a>
-            <a href="login.html" id="loginAnchor" class="navAnchors" >Login</a>
+            <a id="logo" href="index.html">FITCAL</a>
+            <a href="index.html" class="navAnchors">Home</a>
+            <a href="#" class="navAnchors">About Us</a>
+            <a href="dashboard.html" class="navAnchors">Dashboard</a>
+            <a href="login.html" id="loginAnchor" class="navAnchors login-btn active">Login</a>
         </nav>
-        <form id="loginform">
+    </header>
+
+    <div class="auth-container">
+        <form id="loginForm" class="auth-form">
             <p class="form-title">Sign in to your account</p>
+            
             <div class="input-container">
-                <input type="email" placeholder="Email">
-                <span></span>
-          </div>
-          <div class="input-container">
-              <input type="password" placeholder="Password">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <span class="form-error">Please enter a valid email address</span>
             </div>
-             <button type="submit" class="submit" id="signinButton">
-            Sign in
-          </button>
-    
-          <p class="signup-link">
-            No account?
-            <a href="signup.html">Sign up</a>
-          </p>
-       </form>
+            
+            <div class="input-container">
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <span class="form-error">Password is required</span>
+            </div>
+            
+            <button type="submit" class="submit" id="loginButton">
+                Sign in
+            </button>
+            
+            <p class="signup-link">
+                Don't have an account?
+                <a href="signup.html">Sign up</a>
+            </p>
+            
+            <!-- Message container for errors/success notifications -->
+            <div id="messageContainer"></div>
+        </form>
+    </div>
 
-
-
-        <script type="text/javascript" src="../../assets/scripts/scripts.js"></script>
-    </body>
+    <script src="script.js"></script>
+</body>
 </html>
