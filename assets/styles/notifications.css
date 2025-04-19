@@ -1,0 +1,90 @@
+/* Corner notification styling - Improved */
+.corner-notification {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  width: 300px;
+  min-height: 60px;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-bottom: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  animation: slideIn 0.3s ease-out;
+  transition: opacity 0.3s ease;
+  border-left: 4px solid;
+}
+
+/* Notification types with left border colors */
+.corner-notification.warning {
+  border-left-color: #f0ad4e;
+}
+
+.corner-notification.error {
+  border-left-color: #d9534f;
+}
+
+.corner-notification.success {
+  border-left-color: #5cb85c;
+}
+
+.corner-notification.info {
+  border-left-color: #5bc0de;
+}
+
+/* Internal content container */
+.corner-notification .notification-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  width: 100%;
+  background-color: white;
+}
+
+/* Message styling */
+.corner-notification .notification-message {
+  flex-grow: 1;
+  font-weight: 500;
+  padding-right: 8px;
+}
+
+/* Close button styling */
+.corner-notification .close-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #555;
+  padding: 0;
+  line-height: 1;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.corner-notification .close-btn:hover {
+  background: rgba(0, 0, 0, 0.2);
+  color: #333;
+}
+
+.corner-notification .close-btn:active {
+  transform: scale(0.95);
+}
+
+/* Animation for corner notification */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
