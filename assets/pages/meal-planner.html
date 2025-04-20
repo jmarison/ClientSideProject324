@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitCal - Personalized Meal Planner</title>
+    <link rel="stylesheet" href="../styles/navBar.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/meal-planner.css">
+</head>
+<body>
+    <header class="navbar">
+        <nav id="navBar">
+            <a id="logo" href="index.html">FITCAL</a>
+            <a href="index.html" class="navAnchors">Home</a>
+            <a href="dashboard.html" class="navAnchors">About Us</a>
+            <a href="dashboard.html" class="navAnchors">Dashboard</a>
+            <a href="meal-planner.html" class="navAnchors active">Meal Planner</a>
+            <a href="login.html" id="loginAnchor" class="navAnchors login-btn">Login</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="meal-planner-header">
+            <h1>Personalized Meal Planner</h1>
+            <p>Get customized meal suggestions based on your calorie and nutrition needs</p>
+        </div>
+
+        <!-- Form for all users -->
+        <div class="meal-form" id="guest-form">
+            <h2 class="form-title">Your Information</h2>
+            <div class="form-group">
+                <label for="daily-calories">Daily Calorie Target</label>
+                <input type="number" id="daily-calories" placeholder="Enter your daily calorie target">
+            </div>
+            <div class="form-group">
+                <label>Macronutrient Preferences</label>
+                <div class="inline-inputs">
+                    <div>
+                        <label for="protein-percentage">Protein (gm)</label>
+                        <input type="number" id="protein-percentage" >
+                    </div>
+                    <div>
+                        <label for="carbs-percentage">Carbs (gm)</label>
+                        <input type="number" id="carbs-percentage">
+                    </div>
+                    <div>
+                        <label for="fats-percentage">Fats (gm)</label>
+                        <input type="number" id="fats-percentage">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="dietary-preferences">Dietary Preferences</label>
+                <select id="dietary-preferences">
+                    <option value="none">No specific preference</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="gluten-free">Gluten-Free</option>
+                    <option value="keto">Keto</option>
+                    <option value="paleo">Paleo</option>
+                </select>
+            </div>
+            <div class="form-actions">
+                <button id="generate-plan-btn" class="btn btn-primary">Generate Meal Plan</button>
+            </div>
+        </div>
+
+        <!-- Meal plan output -->
+        <div class="meal-plan" id="meal-plan-container">
+            <!-- Will be populated by JavaScript -->
+        </div>
+        
+        <!-- Saved meal plans section (only visible for logged-in users) -->
+        <div class="saved-plans" id="saved-plans-container">
+            <div class="saved-plans-header">
+                <h2>Your Saved Meal Plans</h2>
+                <button id="clear-saved-plans" class="btn btn-outline">Clear All</button>
+            </div>
+            <div class="plan-cards" id="plan-cards-container">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- <footer>
+        <div class="footer-content">
+            <div class="footer-content-left">
+                <div id="footerLogo">FitCal</div>
+                <p>Your healthy lifestyle companion.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Social media</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Calorie Calculator</a></li>
+                    <li><a href="#">Meal Plans</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Recipe Database</a></li>
+                    <li><a href="#">Shopping Guide</a></li>
+                    <li><a href="#">Nutrient Calculator</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            
+        </div>
+        
+        <div class="copyright">
+            Copyright © 2025 FitCal
+        </div>
+    </footer> -->
+
+    <script type="text/javascript" src="../scripts/auth.js"></script>
+    <script src="../scripts/meal-planner.js"></script>
+</body>
+</html>
