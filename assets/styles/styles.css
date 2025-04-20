@@ -956,6 +956,7 @@ a {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row: 1;
+    animation: fadeIn 1s;
   }
   
   #tagline {
@@ -965,6 +966,7 @@ a {
     grid-column-end: 3;
     grid-row: 2;
     font-size: 40px;
+    animation: fadeIn 1s;
   }
   
   #homeGrid a {
@@ -981,7 +983,8 @@ a {
     margin-left: auto;
     margin-right: auto;
     font-size: 28px;
-    padding-bottom: 15px
+    padding-bottom: 15px;
+    animation: fadeIn 2s;
   }
   
   #homeGrid a:hover {
@@ -1040,7 +1043,7 @@ a {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    
+    box-shadow: var(--box-shadow-lg);
     margin-top: 60px;
     margin-bottom: 60px;
   }
@@ -1056,13 +1059,13 @@ a {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    
+    box-shadow: var(--box-shadow-lg);
     margin-top: 60px;
     margin-bottom: 60px;
   }
 
   #text1 {
-    animation: fadeIn 1s;
+    
     grid-row: 1;
     grid-column: 2;
     width: 600px;
@@ -1075,10 +1078,11 @@ a {
     margin-right: auto;
     margin-top: 60px;
     margin-bottom: 60px;
+    box-shadow: var(--box-shadow-lg);
   }
 
   #text2 {
-    animation: fadeIn 1s;
+
     grid-row: 1;
     grid-column: 1;
     width: 600px;
@@ -1091,6 +1095,7 @@ a {
     margin-right: 0px;
     margin-top: 60px;
     margin-bottom: 60px;
+    box-shadow: var(--box-shadow-lg);
   }
 
   #para1 {
@@ -1107,10 +1112,14 @@ a {
     font-size: 3.4rem;
     padding: 20px 20px 0px 20px;
     color: #4caf50;
+    line-height: 1;
   }
 
   h6 {
     font-size: 3.4rem;
     padding: 20px 20px 0px 20px;
     color: #ffffff;
+    line-height: 1;
   }
+
+  
