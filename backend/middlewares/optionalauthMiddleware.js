@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const optionalAuth = async (req, res, next) => {
     let token;
   
-    // Check if token exists in the Authorization header
+    // Check if token exists in the Authorization header for validation
     if (
       req.headers.authorization &&
       req.headers.authorization.startsWith('Bearer')

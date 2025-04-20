@@ -7,7 +7,7 @@ const { optionalAuth } = require('../middlewares/optionalauthMiddleware');
 /**
  POST /api/meal-plan/generate
  Generate a personalized meal plan based on user preferences
- Public
+ Access Public as well as Private (optional authentication)
  */
 router.post('/meal-plan/generate', optionalAuth , generateMealPlan);
 
