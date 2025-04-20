@@ -20,10 +20,12 @@ app.use(bodyParser.json()); // Parse JSON request bodies
 // Import routes
 const authRoutes = require('./routes/authRoutes');
 const nutritionRoutes = require('./routes/nutritionRoutes');
+const mealPlannerRoutes = require('./routes/meal-plannerRoutes');
 
 // Mount routes
 app.use('/api/users', authRoutes); // Authentication endpoints 
 app.use('/api/nutrition', nutritionRoutes); // Nutrition calculation endpoints
+app.use('/api', mealPlannerRoutes); // Meal planner endpoints
 
 // Route to check for authentication status
 // Frontend can use this to determine whether to redirect to login
