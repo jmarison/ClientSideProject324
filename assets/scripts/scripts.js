@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const height = document.getElementById("heightInput").value;
             const activity = document.getElementById("activityInput").value;
             const goal = document.getElementById("goalInput").value;
+            
 
             // Validate inputs
             if (!age || !sex || !weight || !height || !activity || !goal) {
@@ -30,6 +31,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Prepare data for API request
             const userData = { age, sex, weight, height, activity, goal };
+
+             // Save to localStorage for fututure use
+             localStorage.setItem("userData", JSON.stringify(userData));
 
             // Show loading indicator and hide empty state
             document.getElementById("calorieFinal").innerHTML = `
@@ -54,6 +58,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 return response.json();
             })
             .then(data => {
+
+                 // Saving the calorie goals for later use (e.g., food suggestion)
+                    localStorage.setItem("userGoals", JSON.stringify({
+                        calories: data.calories,
+                        protein: data.macros.protein,
+                        carbs: data.macros.carbs,
+                        fats: data.macros.fats
+                    }));
+
                 // Restore the original HTML first
                 document.getElementById("calorieFinal").innerHTML = originalResultsHTML;
                 

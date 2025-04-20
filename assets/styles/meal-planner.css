@@ -1,0 +1,913 @@
+/* 
+ * Meal Planner CSS - Updated with Main Styles (Content Only)
+ * This file contains all styling for the meal planner application,
+ * supporting both authenticated and non-authenticated user interfaces
+ */
+
+/* CSS Variables for consistent theming throughout the application */
+:root {
+  /* Main color palette - Core brand colors used throughout the UI */
+  --color-primary: #4caf50; /* Green - Primary brand color used for buttons, headers, and accents */
+  --color-primary-dark: #388e3c; /* Darker green used for hover states and active elements */
+  --color-primary-light: #a5d6a7; /* Light green used for subtle accents and backgrounds */
+  --color-secondary: #ff9800; /* Orange - Secondary color used for emphasis and call-to-actions */
+  --color-secondary-dark: #f57c00; /* Darker orange for secondary hover states */
+
+  /* Background colors - Different background colors for visual hierarchy */
+  --color-background: #f5f7fa; /* Light grayish-blue used for the main page background */
+  --color-card: #ffffff; /* Pure white used for card backgrounds and content containers */
+  --color-section: #f0f8f1; /* Very light green used for section backgrounds and highlights */
+
+  /* Text colors - Different shades for text hierarchy */
+  --color-text-primary: #263238; /* Dark blue-gray for main headings and important text */
+  --color-text-secondary: #546e7a; /* Medium blue-gray for regular body text */
+  --color-text-light: #78909c; /* Light blue-gray for less important text and captions */
+  --color-text-white: #ffffff; /* White text for dark backgrounds */
+
+  /* Macro colors - Color coding for different nutritional components */
+  --color-protein: #e91e63; /* Pink for protein-related information */
+  --color-carbs: #2196f3; /* Blue for carbohydrate-related information */
+  --color-fats: #ffc107; /* Amber for fat-related information */
+
+  /* Effects - Consistent shadows and border radius values */
+  --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for small elements */
+  --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1); /* Medium shadow for cards and containers */
+  --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1); /* Large shadow for elevated elements */
+  --border-radius-sm: 8px; /* Small rounded corners for buttons and inputs */
+  --border-radius-md: 12px; /* Medium rounded corners for cards and panels */
+  --border-radius-lg: 20px; /* Large rounded corners for major containers */
+
+  /* Typography - Font families for consistent text appearance */
+  --font-family-heading: "Montserrat", sans-serif; /* Used for headings for visual distinction */
+  --font-family-body: "Poppins", sans-serif; /* Used for body text and general content */
+}
+
+/* Reset all browser default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Makes sizing more predictable by including padding in width/height */
+}
+
+/* Base body styling */
+body {
+  font-family: var(--font-family-body); /* Set default font for all text */
+  background-color: var(--color-background); /* Set page background color */
+  color: var(--color-text-primary); /* Set default text color */
+  line-height: 1.6; /* Improves readability of text with taller line height */
+}
+
+/* Heading styles for all heading levels */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading); /* Special font for headings */
+  font-weight: 600; /* Semi-bold weight for headings */
+  color: var(--color-text-primary); /* Dark color for headings */
+}
+
+/* Link styling without underlines */
+a {
+  text-decoration: none; /* Removes underline from links */
+  color: inherit; /* Links inherit color from parent */
+  transition: color 0.3s ease; /* Smooth color transition when hovering */
+}
+
+/* Main container to center and limit content width */
+.container {
+  max-width: 1000px; /* Prevents content from getting too wide */
+  margin: 30px auto; /* Centers the container horizontally with top/bottom margin */
+  padding: 0 20px; /* Adds space on the sides for mobile */
+}
+
+/* Page header section styling */
+.meal-planner-header {
+  text-align: center; /* Centers header text */
+  padding: 30px 20px; /* Spacing around header */
+  max-width: 800px; /* Limits width of header content */
+  margin: 0 auto; /* Centers the header horizontally */
+}
+
+/* Main page title styling */
+.meal-planner-header h1 {
+  font-size: 2.5rem; /* Large size for main title */
+  margin-bottom: 10px; /* Space below title */
+  color: var(--color-primary); /* Brand color for title */
+  font-weight: 700; /* Bold weight for emphasis */
+}
+
+/* Subtitle/description text in header */
+.meal-planner-header p {
+  font-size: 1.1rem; /* Slightly larger than body text */
+  color: var(--color-text-secondary); /* Lighter color for subtitle */
+}
+
+/* Input form styling - Card container for form elements */
+.meal-form {
+  background-color: var(--color-card); /* White background for form */
+  border-radius: var(--border-radius-md); /* Rounded corners */
+  padding: 30px; /* Inner spacing */
+  box-shadow: var(--box-shadow-md); /* Subtle shadow for depth */
+  margin-bottom: 30px; /* Space below form */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for hover effect */
+}
+
+/* Hover effect for form - subtle lift */
+.meal-form:hover {
+  transform: translateY(-5px); /* Lifts form slightly on hover */
+  box-shadow: var(--box-shadow-lg); /* Increases shadow on hover */
+}
+
+/* Form section title */
+.form-title {
+  font-size: 20px; /* Larger text for section title */
+  margin-bottom: 20px; /* Space below title */
+  color: var(--color-primary); /* Brand color for title */
+  position: relative; /* For positioning the decorative underline */
+  padding-bottom: 12px; /* Space for decorative underline */
+  text-align: center; /* Center title text */
+}
+
+/* Decorative underline for form title */
+.form-title::after {
+  content: ""; /* Required for pseudo-elements */
+  position: absolute; /* Position independently */
+  left: 50%; /* Center horizontally */
+  bottom: 0; /* Place at bottom */
+  transform: translateX(-50%); /* Center precisely */
+  width: 60px; /* Width of underline */
+  height: 3px; /* Thickness of underline */
+  background-color: var(
+    --color-primary-light
+  ); /* Light brand color for underline */
+  border-radius: 3px; /* Slightly rounded underline */
+}
+
+/* Container for each form input group */
+.form-group {
+  margin-bottom: 20px; /* Space between form groups */
+}
+
+/* Label for form inputs */
+.form-group label {
+  display: block; /* Each label on its own line */
+  margin-bottom: 8px; /* Space between label and input */
+  font-weight: 500; /* Medium weight for label */
+  color: var(--color-text-secondary); /* Medium color for labels */
+}
+
+/* Form input and select styling */
+.form-group input,
+.form-group select {
+  width: 100%; /* Full width inputs */
+  padding: 12px 16px; /* Spacious padding inside inputs */
+  border: 1px solid #e0e0e0; /* Light gray border */
+  border-radius: var(--border-radius-sm); /* Rounded corners */
+  font-size: 16px; /* Comfortable text size */
+  color: var(--color-text-primary); /* Dark text for input */
+  transition: all 0.2s ease; /* Smooth transition for focus/hover */
+  outline: 0; /* Remove default focus outline */
+  font-family: var(--font-family-body); /* Match body font */
+}
+
+/* Hover state for inputs */
+.form-group input:hover,
+.form-group select:hover {
+  border-color: #bdbdbd; /* Darker border on hover */
+}
+
+/* Focus state for inputs */
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--color-primary); /* Brand color border on focus */
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1); /* Subtle glow around focused input */
+}
+
+/* Custom select dropdown styling */
+.form-group select {
+  cursor: pointer; /* Hand cursor for selects */
+  appearance: none; /* Remove default select styling */
+  /* Custom dropdown arrow using SVG */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23546e7a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat; /* Show arrow only once */
+  background-position: right 1rem center; /* Position arrow to the right */
+  background-size: 1em; /* Size of arrow */
+}
+
+/* Container for side-by-side inputs */
+.form-group .inline-inputs {
+  display: flex; /* Side-by-side inputs */
+  gap: 10px; /* Space between inputs */
+}
+
+/* Individual inputs within inline container */
+.form-group .inline-inputs > div {
+  flex: 1; /* Equal width for all inputs */
+}
+
+/* Form button container */
+.form-actions {
+  margin-top: 30px; /* Space above buttons */
+  text-align: center; /* Center buttons */
+}
+
+/* Base button styling */
+.btn {
+  font-weight: 600; /* Semi-bold text */
+  cursor: pointer; /* Hand cursor */
+  transition: all 0.2s ease; /* Smooth transitions */
+  border: none; /* No default border */
+  border-radius: var(--border-radius-sm); /* Rounded corners */
+  font-size: 1rem; /* Standard text size */
+  padding: 14px 24px; /* Spacious padding */
+  font-family: var(--font-family-body); /* Match body font */
+}
+
+/* Primary (green) button */
+.btn-primary {
+  background-color: var(--color-primary); /* Green background */
+  color: var(--color-text-white); /* White text */
+  display: inline-flex; /* For centering with icons */
+  align-items: center; /* Vertically center icon and text */
+  justify-content: center; /* Horizontally center content */
+  gap: 8px; /* Space between icon and text */
+}
+
+/* Hover state for primary button */
+.btn-primary:hover {
+  background-color: var(--color-primary-dark); /* Darker green on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: var(--box-shadow-md); /* Shadow for depth */
+}
+
+/* Active/pressed state for primary button */
+.btn-primary:active {
+  transform: translateY(0); /* Remove lift when pressed */
+}
+
+/* Outline/secondary button */
+.btn-outline {
+  background-color: transparent; /* No background */
+  color: var(--color-text-secondary); /* Medium gray text */
+  border: 1px solid #ddd; /* Light gray border */
+}
+
+/* Hover state for outline button */
+.btn-outline:hover {
+  border-color: var(--color-primary); /* Brand color border on hover */
+  color: var(--color-primary); /* Brand color text on hover */
+}
+
+/* Meal plan results container - hidden initially */
+.meal-plan {
+  margin-top: 40px; /* Space above meal plan */
+  display: none; /* Hidden until results are received */
+}
+
+/* Visible class to show meal plan with animation */
+.meal-plan.visible {
+  display: block; /* Show the content */
+  animation: fadeIn 0.5s ease-out; /* Fade in animation */
+}
+
+/* Fade in animation definition */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Start transparent */
+    transform: translateY(20px); /* Start slightly below final position */
+  }
+  to {
+    opacity: 1; /* End fully visible */
+    transform: translateY(0); /* End at final position */
+  }
+}
+
+/* Meal plan header styling */
+.meal-plan-header {
+  text-align: center; /* Center header text */
+  margin-bottom: 30px; /* Space below header */
+}
+
+/* Meal plan title */
+.meal-plan-header h2 {
+  font-size: 28px; /* Large title */
+  margin-bottom: 10px; /* Space below title */
+  color: var(--color-primary); /* Brand color for title */
+}
+
+/* Meal plan description */
+.meal-plan-header p {
+  color: var(--color-text-secondary); /* Medium color for subtitle */
+}
+
+/* Container for individual meals */
+.meals-container {
+  display: flex; /* Vertical stacking */
+  flex-direction: column; /* Items stacked vertically */
+  gap: 30px; /* Space between meals */
+  margin-bottom: 30px; /* Space below container */
+}
+
+/* Individual meal card */
+.meal {
+  background-color: var(--color-card); /* White background */
+  border-radius: var(--border-radius-md); /* Rounded corners */
+  box-shadow: var(--box-shadow-md); /* Shadow for depth */
+  overflow: hidden; /* Contain child elements */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover animation */
+}
+
+/* Hover effect for meal cards */
+.meal:hover {
+  transform: translateY(-5px); /* Lift card on hover */
+  box-shadow: var(--box-shadow-lg); /* Increased shadow on hover */
+}
+
+/* Meal card header/title bar */
+.meal h3 {
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
+  padding: 15px 20px;
+  margin: 0;
+  font-size: 18px;
+}
+
+/* Container for meal details (image and info) */
+.meal-details {
+  display: flex; /* Side-by-side layout */
+  padding: 20px;
+  align-items: flex-start; /* Align items to top */
+  gap: 20px;
+}
+
+/* Meal image container */
+.meal-image {
+  flex-shrink: 0; /* Prevent image from shrinking */
+  width: 140px; /* Fixed width */
+  height: 140px; /* Fixed height (square) */
+  border-radius: var(--border-radius-sm); /* Rounded corners */
+  overflow: hidden; /* Contain image */
+  box-shadow: var(--box-shadow-sm);
+}
+
+/* Actual image within container */
+.meal-thumbnail {
+  width: 100%; /* Fill container */
+  height: 100%; /* Fill container */
+  object-fit: cover; /* Crop to cover container */
+  transition: transform 0.3s ease; /* Hover zoom effect */
+}
+
+/* Zoom effect on image hover */
+.meal-image:hover .meal-thumbnail {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Container for meal text information */
+.meal-info {
+  flex: 1; /* Take up remaining space */
+}
+
+/* Meal name/title */
+.meal-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--color-text-primary); /* Dark text */
+}
+
+/* Meal description text */
+.meal-description {
+  font-size: 14px; /* Smaller text */
+  color: var(--color-text-secondary); /* Medium gray */
+  margin-bottom: 12px; /* Space below */
+}
+
+/* Container for macro nutrient pills */
+.meal-macros {
+  display: flex; /* Side-by-side */
+  flex-wrap: wrap; /* Allow wrapping to next line */
+  gap: 10px; /* Space between pills */
+}
+
+/* Individual macro nutrient pill */
+.meal-macros span {
+  background-color: var(--color-section);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500; /* Medium weight */
+}
+
+/* Color coding for different macros - Calories */
+.meal-macros span:nth-child(1) {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--color-primary); /* Green text */
+}
+
+/* Color coding for different macros - Protein */
+.meal-macros span:nth-child(2) {
+  background-color: rgba(233, 30, 99, 0.1);
+  color: var(--color-protein);
+}
+
+/* Color coding for different macros - Carbs */
+.meal-macros span:nth-child(3) {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: var(--color-carbs);
+}
+
+/* Color coding for different macros - Fats */
+.meal-macros span:nth-child(4) {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: var(--color-fats);
+}
+
+/* List of food items in a meal */
+.foods-list {
+  list-style: none; /* Remove bullets */
+  padding: 0 20px 20px; /* Space around list */
+  margin: 0; /* Remove default margin */
+}
+
+/* Individual food item */
+.food-item {
+  display: flex; /* Side-by-side layout */
+  align-items: center; /* Center items vertically */
+  padding: 12px; /* Space inside item */
+  margin-bottom: 10px; /* Space below item */
+  border-radius: var(--border-radius-sm); /* Rounded corners */
+  background-color: var(--color-section); /* Light background */
+  transition: transform 0.2s ease; /* Hover animation */
+}
+
+/* Hover effect for food items */
+.food-item:hover {
+  transform: translateX(5px); /* Shift right on hover */
+}
+
+/* Food item image container */
+.food-image {
+  width: 60px; /* Fixed width */
+  height: 60px; /* Fixed height (square) */
+  border-radius: var(--border-radius-sm); /* Rounded corners */
+  overflow: hidden; /* Contain image */
+  margin-right: 15px; /* Space to the right */
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Food item thumbnail */
+.food-thumbnail {
+  width: 100%; /* Fill container */
+  height: 100%; /* Fill container */
+  object-fit: cover; /* Crop to cover container */
+}
+
+/* Food item text information */
+.food-info {
+  flex: 1; /* Take remaining space */
+  display: flex; /* Stacked layout */
+  flex-direction: column; /* Stack vertically */
+}
+
+/* Food item name */
+.food-name {
+  font-weight: 600; /* Semi-bold */
+  margin-bottom: 4px; /* Space below */
+}
+
+/* Food serving size information */
+.food-serving {
+  font-size: 13px;
+  color: var(--color-text-secondary); /* Medium gray */
+}
+
+/* Food calorie information */
+.food-calories {
+  font-weight: 500; /* Medium weight */
+  color: var(--color-primary); /* Brand green */
+  margin-left: auto; /* Push to right */
+  padding-left: 15px; /* Space to the left */
+}
+
+/* Summary of nutritional totals */
+.meal-plan-summary {
+  display: flex; /* Side-by-side */
+  justify-content: center; /* Center horizontally */
+  flex-wrap: wrap; /* Allow wrapping */
+  gap: 15px; /* Space between items */
+  margin-bottom: 30px; /* Space below */
+}
+
+/* Individual summary statistic */
+.summary-item {
+  background-color: var(--color-section); /* Light background */
+  padding: 15px 25px; /* Space inside */
+  border-radius: var(--border-radius-sm); /* Rounded corners */
+  text-align: center; /* Center text */
+  min-width: 120px; /* Minimum width */
+}
+
+/* Summary statistic label */
+.summary-label {
+  display: block; /* Own line */
+  font-size: 14px; /* Smaller text */
+  color: var(--color-text-secondary); /* Medium gray */
+  margin-bottom: 5px; /* Space below */
+}
+
+/* Summary statistic value */
+.summary-value {
+  font-size: 22px; /* Large text */
+  font-weight: 600; /* Semi-bold */
+  color: var(--color-primary); /* Brand green */
+}
+
+/* Container for action buttons below meal plan */
+.meal-plan-actions {
+  margin-top: 30px; /* Space above */
+  text-align: center; /* Center content */
+  display: flex; /* Side-by-side */
+  justify-content: center; /* Center horizontally */
+  gap: 15px; /* Space between buttons */
+}
+
+/* Login prompt for unauthenticated users - IMPORTANT FOR AUTHENTICATION UI */
+.login-prompt {
+  text-align: center; /* Center content */
+  background-color: var(--color-card); /* White background */
+  border-radius: var(--border-radius-md); /* Rounded corners */
+  padding: 30px; /* Space inside */
+  box-shadow: var(--box-shadow-md); /* Subtle shadow */
+  margin: 40px auto; /* Space around and centered */
+  max-width: 500px; /* Maximum width */
+}
+
+/* Login prompt title */
+.login-prompt h3 {
+  margin-bottom: 15px; /* Space below */
+  font-size: 22px; /* Larger text */
+  color: var(--color-primary); /* Brand green */
+}
+
+/* Login prompt description */
+.login-prompt p {
+  margin-bottom: 25px; /* Space below */
+  color: var(--color-text-secondary); /* Medium gray */
+}
+
+/* Container for login/register buttons */
+.login-actions {
+  display: flex; /* Side-by-side */
+  justify-content: center; /* Center horizontally */
+  gap: 15px; /* Space between buttons */
+  margin-top: 20px; /* Space above */
+}
+
+/* Loading indicator and error state styling */
+.loading,
+.error {
+  text-align: center; /* Center content */
+  padding: 30px; /* Space inside */
+  background-color: var(--color-card); /* White background */
+  border-radius: var(--border-radius-md); /* Rounded corners */
+  box-shadow: var(--box-shadow-md); /* Subtle shadow */
+}
+
+/* Loading spinner animation */
+.loading:after {
+  content: ""; /* Required for pseudo-element */
+  display: inline-block; /* Inline with text */
+  width: 20px; /* Width of spinner */
+  height: 20px; /* Height of spinner */
+  border: 3px solid rgba(0, 0, 0, 0.3); /* Gray circle */
+  border-radius: 50%; /* Perfect circle */
+  border-top-color: var(--color-primary); /* Green segment */
+  animation: spin 1s ease-in-out infinite; /* Rotation animation */
+  margin-left: 10px; /* Space to the left */
+  vertical-align: middle; /* Align with text */
+}
+
+/* Spinner rotation animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg); /* Rotate full circle */
+  }
+}
+
+/* Error message title */
+.error h3 {
+  color: #e53935; /* Red text */
+  margin-bottom: 10px; /* Space below */
+}
+
+/* Error message description */
+.error p {
+  margin-bottom: 20px; /* Space below */
+  color: var(--color-text-secondary); /* Medium gray */
+}
+
+/* Detailed error message box */
+.error-message {
+  background-color: #ffebee; /* Light red background */
+  border-left: 4px solid #e53935; /* Red left border */
+  padding: 20px; /* Space inside */
+  margin: 20px 0; /* Space above/below */
+  border-radius: var(--border-radius-sm); /* Rounded corners */
+}
+
+/* Error message title */
+.error-message h3 {
+  color: #e53935; /* Red text */
+  margin-bottom: 10px; /* Space below */
+  font-size: 18px; /* Medium text */
+}
+
+/* Error message details */
+.error-message p {
+  color: var(--color-text-secondary); /* Medium gray */
+  margin-bottom: 10px; /* Space below */
+}
+
+/* Toast notification popup */
+.toast {
+  position: fixed; /* Fixed position on screen */
+  bottom: 20px; /* Distance from bottom */
+  right: 20px; /* Distance from right */
+  padding: 15px 20px; /* Space inside */
+  background-color: var(--color-card); /* White background */
+  border-radius: var(--border-radius-sm); /* Rounded corners */
+  box-shadow: var(--box-shadow-lg); /* Pronounced shadow */
+  display: flex; /* Side-by-side content */
+  align-items: center; /* Center vertically */
+  z-index: 1000; /* Always on top */
+  transform: translateY(100px); /* Start position (hidden) */
+  opacity: 0; /* Start transparent */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth animation */
+}
+
+/* Visible state for toast */
+.toast.visible {
+  transform: translateY(0); /* Final position (visible) */
+  opacity: 1; /* Fully visible */
+}
+
+/* Success toast variant */
+.toast.success {
+  border-left: 5px solid var(--color-primary); /* Green left border */
+}
+
+/* Error toast variant */
+.toast.error {
+  border-left: 5px solid #e53935; /* Red left border */
+}
+
+/* Toast message text */
+.toast-content {
+  margin-left: 15px; /* Space to the left */
+}
+
+/* Toast close button */
+.toast-close {
+  margin-left: 15px; /* Space to the left */
+  cursor: pointer; /* Hand cursor */
+  opacity: 0.5; /* Semi-transparent */
+}
+
+/* Saved plans section - IMPORTANT FOR AUTHENTICATED USER UI */
+.saved-plans {
+  margin-top: 40px; /* Space above */
+  display: none; /* Hidden by default */
+}
+
+/* Visible state for saved plans section */
+.saved-plans.visible {
+  display: block; /* Show content */
+  animation: fadeIn 0.5s ease-out; /* Fade in animation */
+}
+
+/* Saved plans section header */
+.saved-plans-header {
+  display: flex; /* Side-by-side */
+  justify-content: space-between; /* Space between elements */
+  align-items: center; /* Center vertically */
+  margin-bottom: 20px; /* Space below */
+}
+
+/* Saved plans section title */
+.saved-plans-header h2 {
+  color: var(--color-primary); /* Brand green */
+}
+
+/* Grid layout for saved plan cards */
+.plan-cards {
+  display: grid; /* Grid layout */
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* Responsive columns */
+  gap: 20px; /* Space between cards */
+}
+
+/* Individual saved plan card */
+.plan-card {
+  background-color: var(--color-card); /* White background */
+  border-radius: var(--border-radius-md); /* Rounded corners */
+  box-shadow: var(--box-shadow-md); /* Subtle shadow */
+  padding: 20px; /* Space inside */
+  cursor: pointer; /* Hand cursor */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover animation */
+}
+
+/* Hover effect for plan cards */
+.plan-card:hover {
+  transform: translateY(-5px); /* Lift on hover */
+  box-shadow: var(--box-shadow-lg); /* Increased shadow */
+}
+
+/* Plan card header with title and actions */
+.plan-card-header {
+  display: flex; /* Side-by-side */
+  justify-content: space-between; /* Space between */
+  align-items: center; /* Center vertically */
+  margin-bottom: 15px; /* Space below */
+}
+
+/* Plan card title */
+.plan-card-header h3 {
+  font-size: 16px; /* Medium text */
+  color: var(--color-text-primary); /* Dark text */
+  margin: 0; /* No margin */
+}
+
+/* Container for plan card action buttons */
+.plan-card-actions {
+  display: flex; /* Side-by-side */
+  gap: 8px; /* Space between buttons */
+}
+
+/* Small buttons in plan cards */
+.plan-card-actions .btn {
+  padding: 6px 12px; /* Smaller padding */
+  font-size: 12px; /* Smaller text */
+}
+
+/* Plan card details/description */
+.plan-card-details {
+  font-size: 14px; /* Smaller text */
+  color: var(--color-text-secondary); /* Medium gray */
+}
+
+/* Plan detail items */
+.plan-card-details p {
+  margin-bottom: 8px; /* Space below */
+}
+
+/* Message shown when no saved plans exist */
+.no-plans-message {
+  text-align: center; /* Center text */
+  padding: 30px; /* Space inside */
+  background-color: var(--color-section); /* Light background */
+  border-radius: var(--border-radius-md); /* Rounded corners */
+  color: var(--color-text-secondary); /* Medium gray */
+}
+
+/* Print-specific styles - Adjust layout for printing */
+@media print {
+  /* Hide interactive elements when printing */
+  .meal-form,
+  .meal-plan-actions,
+  .saved-plans {
+    display: none; /* Hide when printing */
+  }
+
+  /* Full width container when printing */
+  .container {
+    width: 100%; /* Full width */
+    max-width: 100%; /* No max width */
+    margin: 0; /* No margin */
+    padding: 0; /* No padding */
+  }
+
+  /* Keep meals on same page when printing */
+  .meal {
+    break-inside: avoid; /* Prevent page breaks inside meals */
+    margin-bottom: 20px; /* Space below */
+    box-shadow: none; /* No shadow when printing */
+    border: 1px solid #eee; /* Light border for definition */
+  }
+
+  /* Adjust body text for printing */
+  body {
+    font-size: 12pt; /* Print font size */
+    line-height: 1.5; /* Line height */
+    background-color: white; /* White background */
+  }
+
+  /* Smaller title when printing */
+  .meal-plan-header h2 {
+    font-size: 18pt; /* Smaller title for print */
+  }
+
+  /* Ensure images print with colors */
+  .meal-image,
+  .food-image {
+    print-color-adjust: exact; /* Print colors exactly as shown */
+    -webkit-print-color-adjust: exact; /* For WebKit browsers */
+  }
+}
+
+/* Responsive styles for tablets and smaller screens */
+@media (max-width: 768px) {
+  /* Stack form inputs vertically on smaller screens */
+  .form-group .inline-inputs {
+    flex-direction: column; /* Stack vertically */
+    gap: 15px; /* Space between inputs */
+  }
+
+  /* Stack meal details vertically on smaller screens */
+  .meal-details {
+    flex-direction: column; /* Stack vertically */
+  }
+
+  /* Adjust meal images for small screens */
+  .meal-image {
+    width: 100%; /* Full width */
+    height: 200px; /* Taller image */
+    margin-bottom: 15px; /* Space below */
+  }
+
+  /* Add space above macros on small screens */
+  .meal-macros {
+    margin-top: 15px; /* Space above */
+  }
+
+  /* Adjust summary items on smaller screens */
+  .summary-item {
+    flex: 1; /* Flexible width */
+    min-width: 100px; /* Minimum width */
+  }
+
+  /* Adjust food items for smaller screens */
+  .food-item {
+    flex-wrap: wrap; /* Allow wrapping */
+  }
+
+  /* Adjust food images on smaller screens */
+  .food-image {
+    margin-bottom: 10px; /* Space below */
+  }
+
+  /* Adjust calorie display on smaller screens */
+  .food-calories {
+    margin-left: 0; /* Reset left margin */
+    margin-top: 8px; /* Space above */
+  }
+}
+
+/* Responsive styles for mobile phones */
+@media (max-width: 576px) {
+  /* Smaller page title on mobile */
+  .meal-planner-header h1 {
+    font-size: 2rem; /* Smaller font */
+  }
+
+  /* Smaller form title on mobile */
+  .form-title {
+    font-size: 1.5rem; /* Smaller font */
+  }
+
+  /* Full width buttons on mobile */
+  .btn {
+    width: 100%; /* Full width */
+  }
+
+  /* Stack action buttons vertically on mobile */
+  .meal-plan-actions {
+    flex-direction: column; /* Stack vertically */
+  }
+
+  /* Stack saved plans header on mobile */
+  .saved-plans-header {
+    flex-direction: column; /* Stack vertically */
+    gap: 15px; /* Space between items */
+  }
+
+  /* Single column saved plans on mobile */
+  .plan-cards {
+    grid-template-columns: 1fr; /* Single column */
+  }
+
+  /* Stack meal plan summary vertically on mobile */
+  .meal-plan-summary {
+    flex-direction: column; /* Stack vertically */
+  }
+
+  /* Full width summary items on mobile */
+  .summary-item {
+    width: 100%; /* Full width */
+  }
+}
