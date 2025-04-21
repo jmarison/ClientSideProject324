@@ -115,7 +115,7 @@
   color: var(--color-primary);
   font-size: 3.6rem;
   text-align: center;
-  text-decoration: underline;
+  text-decoration: none;
   padding-top: 20px;
  }
 
