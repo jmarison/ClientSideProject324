@@ -1,0 +1,127 @@
+:root {
+    /* Main color palette */
+    --color-primary: #4caf50; /* Green - brand color */
+    --color-primary-dark: #388e3c; /* Darker green for hovers */
+    --color-primary-light: #a5d6a7; /* Light green for accents */
+    --color-secondary: #ff9800; /* Orange - for emphasis */
+    --color-secondary-dark: #f57c00; /* Darker orange */
+  
+    /* Background colors */
+    --color-background: #f5f7fa; /* Light grayish-blue */
+    --color-card: #ffffff; /* White for cards */
+    --color-section: #f0f8f1; /* Very light green */
+  
+    /* Text colors */
+    --color-text-primary: #263238; /* Dark blue-gray */
+    --color-text-secondary: #546e7a; /* Medium blue-gray */
+    --color-text-light: #78909c; /* Light blue-gray */
+    --color-text-white: #ffffff; /* White text */
+  
+    /* Nutrition-specific colors */
+    --primary-green: rgb(103, 149, 69); /* Vegan primary green */
+    --light-green: #96bf49; /* Vegan light green */
+    --highlight-green: #eaf6cd; /* Vegan highlight green */
+  
+    /* Macro colors */
+    --color-protein: #e91e63; /* Pink */
+    --color-carbs: #2196f3; /* Blue */
+    --color-fats: #ffc107; /* Amber */
+  
+    /* Effects */
+    --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 20px;
+  
+    /* Typography */
+    --font-family-heading: "Montserrat", sans-serif;
+    --font-family-body: "Poppins", sans-serif;
+  }
+
+  /* 
+   * CSS RESET AND BASE STYLES
+   * Reset browser defaults and set base styles
+   */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* 
+     * Base body styles with font family fallbacks
+     * Using CSS variables for consistent theming
+     */
+  body {
+    font-family: var(--font-family-body), "Segoe UI", Tahoma, Geneva, Verdana,
+      sans-serif;
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    line-height: 1.6;
+  }
+
+  /* ==============================================
+   About Page Styling
+   ============================================== */
+
+  
+
+   #qnaflex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    
+ }
+
+ main {
+    size: calc
+ }
+
+#qnaflex div {
+  min-height: 325;
+  max-height: 800px;
+  flex-basis: 350px;
+  flex-grow: 1;
+  max-width: 400px;
+  background-color: var(--color-card);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-md);
+  margin: 15px;
+  padding: 20px;
+  display: block;
+  font-family: var(--font-family-body);
+  animation: fadeIn 2s;
+ }
+
+ #qnaflex h1 {
+  color: var(--color-primary);
+  font-size: 2rem;
+  line-height: 1;
+ }
+
+ #qnaflex p {
+  color: var(--color-text-secondary);
+  font-size: 1.2rem;
+  padding-top: 5px;
+ }
+
+ #about-top h2 {
+  color: var(--color-primary);
+  font-size: 3.6rem;
+  text-align: center;
+  text-decoration: underline;
+  padding-top: 20px;
+ }
+
+ #about-top p {
+  color: var(--color-text-secondary);
+  font-size: 1.4rem;
+  text-align: center;
+  padding-bottom: 20px;
+ }
